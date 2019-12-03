@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 2019_12_03_143345) do
     t.text "content"
     t.decimal "price"
     t.string "category"
+    t.bigint "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_lessons_on_teacher_id"
   end
 
   create_table "users", force: :cascade do |t|
