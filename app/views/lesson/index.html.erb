@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Hello, world!</title>
+  <title>Couture Academy</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -32,7 +32,17 @@
         <div class="title">
               <br/><h3 class="title">Les catégories</h3>
             </div>
-      <div class="row">
+              <div class="row">
+               <div class="col-md-3">
+                <div class="card card-background" style="background-image: url('https://static.pratique.fr/images/unsized/mo/mode-printemps-ete-la-tendance-est-au-tie-and-dye-istock-com-strathroy-209-1554283226.jpg')">
+                  <div class="card-body">
+                    <h3 class="card-title">Les bases</h3><br/><br/><br/><br/>
+                    <a href="#pablo" class="btn btn-danger btn-round">
+                      <i class="material-icons">subject</i> Voir les cours
+                    </a>
+                  </div>
+                </div>
+              </div>
               <div class="col-md-3">
                 <div class="card card-background" style="background-image: url('https://cache.marieclaire.fr/data/photo/w1000_ci/4y/apprendre-la-broderie.jpg')">
                   <div class="card-body">
@@ -63,41 +73,32 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-3">
-                <div class="card card-background" style="background-image: url('https://static.pratique.fr/images/unsized/mo/mode-printemps-ete-la-tendance-est-au-tie-and-dye-istock-com-strathroy-209-1554283226.jpg')">
-                  <div class="card-body">
-                    <h3 class="card-title">Teinture</h3><br/><br/><br/><br/>
-                    <a href="#pablo" class="btn btn-danger btn-round">
-                      <i class="material-icons">subject</i> Voir les cours
-                    </a>
-                  </div>
-                </div>
-              </div>
             </div>
       <div class="container">
         <div class="title">
           <br/><h3 class="title">Tous nos cours</h3>
       </div>
       <div class="row">
+      <% @lessons.each do |lesson|%>
               <div class="col-md-6 col-lg-4">
                 <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
                   <div class="card card-rotate">
                     <div class="front front-background" style="background-image: url(&quot;https://vertcerise.com/blog/wp-content/uploads/2019/02/hoop-art-chat.jpg&quot;); width: 289.984px;">
                       <div class="card-body">
                         <h5 class="card-category card-category-social text-success">
-                          Broderie
+                          <%= lesson.category %>
                         </h5>
                         <h4 class="card-title">
-                          <a href="#pablo">Les bases de la broderie</a>
+                          <a href="#pablo"><%= lesson.title%></a>
                         </h4>
                         <p class="card-description">
-                          Vous avez toujours voulu vous laisser dans la broderie, mais vous ne savez pas comment vous y prendre ? C'est parfait, ce cours est fait pour vous ! 
+                          <%= lesson.content.truncate_words(25) %>
                         </p>
                         <div class="card-footer ">
                     <div class="author">
                       <a href="#pablo">
-                        <img src="./assets/img/faces/marc.jpg" alt="..." class="avatar img-raised"><br/>
-                        <span>Proposé par Paul</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="..." class="avatar img-raised"><br/>
+                        <span>Proposé par <%= lesson.teacher_id %></span>
                       </a>
                     </div>
                     <div class="stats ml-auto">
@@ -118,10 +119,10 @@
                           Lancez vous !
                         </h5>
                         <p class="card-description">
-                          C'est beaucoup plus simple que vous ne le pensez...
+                          Vous avez toujours voulu vous laisser dans la broderie, mais vous ne savez pas comment vous y prendre ? C'est parfait, ce cours est fait pour vous ! 
                         </p>
                         <div class="stats text-center">
-                          <a href="#pablo" class="btn btn-rose btn-round">
+                          <a href="<%= lesson_path(lesson.id)%>" class="btn btn-rose btn-round">
                             <i class="material-icons">subject</i> S'inscrire
                           </a>
                         </div>
@@ -134,6 +135,7 @@
                   </div>
                 </div>
               </div>
+      <% end %>
             </div>
     </div>
     </div>
