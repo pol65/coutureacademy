@@ -1,26 +1,72 @@
-<h2>Log in</h2>
+<!--
+ =========================================================
+ Material Kit PRO - v2.2.0
+ =========================================================
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+ Product Page: https://themes.getbootstrap.com/product/material-kit-pro/
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+ Coded by Creative Tim
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+ =========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<div class="page-header header-filter" style="background-image: url('http://eskipaper.com/images/background-images-1.jpg'); background-size: cover; background-position: top center;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <form class="form" action="show">
+          <div class="card card-login card-hidden">
+            <div class="card-header card-header-primary text-center">
+              <h4 class="card-title">Login</h4>
+              <div class="social-line">
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                  <i class="fa fa-facebook-square"></i>
+                </a>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card-body ">
+              <p class="card-description text-center">Or Be Classical</p>
+              <span class="bmd-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">email</i>
+                    </span>
+                  </div>
+                  <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: " Email" %>
+                  
+                </div>
+              </span>
+              <span class="bmd-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                  <%= f.password_field :password, class: 'form-control', autocomplete: "current-password" %>
+                </div>
+              </span>
+            </div>
+            <div class="card-footer justify-content-center">
+              <%= f.submit "Log in", class: 'btn btn-rose btn-link btn-lg' %>
+              
+            </div>
+            <p class="text-center">Nouveau sur le site ? <%= link_to "Create New Account", new_user_registration_path %> </p>
+          </div>
+          
+        </form>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
