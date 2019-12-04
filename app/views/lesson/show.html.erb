@@ -1,0 +1,163 @@
+<!--
+ =========================================================
+ Material Kit PRO - v2.2.0
+ =========================================================
+
+ Product Page: https://themes.getbootstrap.com/product/material-kit-pro/
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+ Coded by Creative Tim
+
+ =========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    <%= @lesson.title %>
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="../assets/css/material-kit.css?v=2.2.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
+</head>
+
+<body class="blog-post sidebar-collapse">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://static.wixstatic.com/media/40da79353be1422480640cb59eb29b1f.jpg/v1/fill/w_2313,h_1301,al_c,q_85/40da79353be1422480640cb59eb29b1f.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto text-center">
+          <h1 class="title"><%= @lesson.title %></h1>
+          <h4>Un cours proposé par <%= @lesson.teacher_id %></h4>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="section section-text">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <p><%= @lesson.content %></p>
+          </div>
+        </div>
+      </div>
+      <div class="section section-blog-info">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="blog-tags">
+                  Catégorie :
+                  <span class="badge badge-primary badge-pill"><%= @lesson.category %></span>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div class="section section-comments">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="media-area">
+              <h3 class="title text-center">Commentaires</h3>
+              <div class="media">
+                <a class="float-left" href="#pablo">
+                  <div class="avatar">
+                    <img class="media-object" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="...">
+                  </div>
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Tina Andrew <small>&#xB7; 7 minutes ago</small></h4>
+                  <h6 class="text-muted"></h6>
+                  <p>Chance too good. God level bars. I&apos;m so proud of @LifeOfDesiigner #1 song in the country. Panda! Don&apos;t be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
+                  <div class="media-footer">
+                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
+                      <i class="material-icons">reply</i> Reply
+                    </a>
+                    <a href="#pablo" class="btn btn-danger btn-link float-right">
+                      <i class="material-icons">favorite</i> 243
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="media">
+                <a class="float-left" href="#pablo">
+                  <div class="avatar">
+                    <img class="media-object" alt="Tim Picture" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
+                  </div>
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">John Camber <small>&#xB7; Yesterday</small></h4>
+                  <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                  <p> Don&apos;t forget, You&apos;re Awesome!</p>
+                  <div class="media-footer">
+                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
+                      <i class="material-icons">reply</i> Répondre
+                    </a>
+                    <a href="#pablo" class="btn btn-link float-right">
+                      <i class="material-icons">favorite</i> 25
+                    </a>
+                  </div>
+                  <div class="media">
+                    <a class="float-left" href="#pablo">
+                      <div class="avatar">
+                        <img class="media-object" alt="64x64" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
+                      </div>
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Tina Andrew <small>&#xB7; 12 Hours Ago</small></h4>
+                      <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                      <p> Don&apos;t forget, You&apos;re Awesome!</p>
+                      <div class="media-footer">
+                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
+                          <i class="material-icons">reply</i> Répondre
+                        </a>
+                        <a href="#pablo" class="btn btn-link btn-secondary float-right">
+                          <i class="material-icons">favorite</i> 2
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3 class="title text-center">Postez votre commentaire</h3>
+            <div class="media media-post">
+              <a class="author float-left" href="#pablo">
+                <div class="avatar">
+                  <img class="media-object" alt="64x64" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
+                </div>
+              </a>
+              <div class="media-body">
+                <div class="form-group label-floating bmd-form-group">
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Merci de rester civil.e et poli.e.</label>
+                  <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
+                </div>
+                <div class="media-footer">
+                  <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Envoyer</a>
+                </div>
+              </div>
+            </div> <!-- end media-post -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
