@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Hello, world!</title>
+  <title>Couture Academy</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -79,7 +79,6 @@
           <br/><h3 class="title">Tous nos cours</h3>
       </div>
       <div class="row">
-      <% @users.each do |user|%>
       <% @lessons.each do |lesson|%>
               <div class="col-md-6 col-lg-4">
                 <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
@@ -99,7 +98,7 @@
                     <div class="author">
                       <a href="#pablo">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="..." class="avatar img-raised"><br/>
-                        <span>Proposé par <%= user.username %></span>
+                        <span>Proposé par <%= lesson.teacher_id %></span>
                       </a>
                     </div>
                     <div class="stats ml-auto">
@@ -136,7 +135,6 @@
                   </div>
                 </div>
               </div>
-      <% end %>
       <% end %>
             </div>
     </div>
