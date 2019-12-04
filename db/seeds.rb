@@ -44,7 +44,7 @@ end
 classrooms = []
 50.times do
     classrooms << Classroom.create(
-        user_id: lessons.sample.teacher_id,
+        student_id: users.sample.id,
         lesson_id: lessons.sample.id
     )
 end
