@@ -43,7 +43,6 @@
                     </span>
                   </div>
                   <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: " Email" %>
-                  
                 </div>
               </span>
               <span class="bmd-form-group">
@@ -58,10 +57,10 @@
               </span>
             </div>
             <div class="card-footer justify-content-center">
-              <%= f.submit "Log in", class: 'btn btn-rose btn-link btn-lg' %>
+              <%= f.submit "Se connecter", class: 'btn btn-rose btn-link btn-lg' %>
               
             </div>
-            <p class="text-center">Nouveau sur le site ? <%= link_to "Create New Account", new_user_registration_path %> </p>
+            <p class="text-center">Nouveau sur le site ? <%= link_to "Inscrivez-vous", new_user_registration_path %> </p>
           </div>
           
         </form>
