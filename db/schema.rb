@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 2019_12_03_143345) do
 
   create_table "classrooms", force: :cascade do |t|
     t.bigint "lesson_id"
-    t.bigint "user_id"
+    t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lesson_id"], name: "index_classrooms_on_lesson_id"
-    t.index ["user_id"], name: "index_classrooms_on_user_id"
+    t.index ["student_id"], name: "index_classrooms_on_student_id"
   end
 
   create_table "lessons", force: :cascade do |t|
