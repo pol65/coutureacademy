@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'lesson#index'
   devise_for :users
+  resources :users
   get 'static_pages/contact'
   get 'static_pages/about'
   get 'static_pages/faq'
