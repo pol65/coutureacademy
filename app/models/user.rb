@@ -17,8 +17,6 @@ def is_teacher?
   else
   end
 end
-
-
   
   after_create :welcome_send
 
@@ -26,5 +24,7 @@ end
     UserMailer.welcome_email(self).deliver_now
   end
 
-
 end
+
+
+

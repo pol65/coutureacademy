@@ -1,0 +1,50 @@
+<body class="product-page sidebar-collapse">
+  <div class="page-header header-filter" data-parallax="true" filter-color="rose" style="background-image: url('https://cache.marieclaire.fr/data/photo/w1000_ci/4w/cours-de-couture.jpg');">
+  </div>
+
+  <div class="section">
+    <div class="container">
+        <div class="main main-raised main-product">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <h2 class="title">Je propose mon cours</h2>
+                    <h5 class="description">Vous pouvez ici proposer votre propre cours. Chaque cours est soumis à l'approbation de l'équipe de Couture Academy. N'oubliez pas la mise en forme, un pavé de texte sans chapitres ni titre sera systématiquement refusé par notre équipe.</h5>
+                    <h6 class="description">S'il est accepté, votre cours sera en ligne environ 24h après sa publication.</h6>
+                    <br/>
+                    
+                <div class="media media-post">
+                  <div class="media-body">
+                    <%= form_with model: @lesson, local: true, class: "form" do |form| %>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.text_field :title, class: "form-control", placeholder: "Titre du cours" %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.select :category, [
+                              'Les bases',
+                              'Couture',
+                              'Broderie',
+                              'Modélisme'] %>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="bmd-form-group">
+                      <%= form.text_area :content, class: "form-control", placeholder: "Pensez à mettre en forme correctement votre texte...", rows: "20" %>
+                      </span>
+                      <div class="media-footer">
+                        <%= form.submit class: "btn btn-success", value: "Poster le cours" %>
+                      </div>
+                    <% end %>
+                  </div><!-- end media-body -->
+                </div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
