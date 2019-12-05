@@ -1,0 +1,98 @@
+<!--
+ =========================================================
+ Material Kit PRO - v2.2.0
+ =========================================================
+
+ Product Page: https://themes.getbootstrap.com/product/material-kit-pro/
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+ Coded by Creative Tim
+
+ =========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Mon dashboard
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  
+</head>
+
+<body class="profile-page sidebar-collapse">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://crazylittleprojects.com/wp-content/uploads/2017/10/Supplies-Needed-to-Start-Sewing.jpg');"></div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h3 class="title"><%= @user.username.capitalize %></h3>
+                <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="description text-center">
+          <p> <%= @user.description %> </p><br/><br/>
+          <button class="btn btn-success btn-lg btn-round">Proposer un cours<div class="ripple-container"></div></button>
+        </div>
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile-tabs">
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link" href="#subscribed" role="tab" data-toggle="tab">
+                    <i class="material-icons">beenhere</i>
+                    Mes abonnements
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#mycourses" role="tab" data-toggle="tab">
+                    <i class="material-icons">create</i>
+                    Mes cours
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content tab-space">
+          <div class="tab-pane text-center gallery" id="subscribed">
+            <div class="row">
+              <div class="col ml-auto">
+                <p>Abonnement 1</p>
+                <p>Abonnement 2</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane text-center gallery" id="mycourses">
+            <div class="row">
+              <div class="col ml-auto">
+                <p>Cours 1</p>
+                <p>Cours 2</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
