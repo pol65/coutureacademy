@@ -120,13 +120,33 @@
             </div>
 
             <!--Le formulaire va POINTER vers la methode #create dans le controller comments Jamy, nous dit c'est pas super intuitif, mais PAR CONVENTION le POST de création va à /comments et non pas /comments/new -->
-
-       <%= form_with model: @comment, local: true do |form| %>
-                    <%= form.text_field :content %>
-                    <%= form.submit %>
+ <h3 class="text-center">Laissez votre commentaire <br></h3>
+                <div class="media media-post">
+                  <a class="author float-left" href="#pablo">
+                    <div class="avatar">
+                      <img class="media-object" alt="64x64" src="./assets/img/faces/avatar.jpg">
+                    </div>
+                  </a>
+                  <div class="media-body">
+                    <div class="media-body">
+                    <%= form_with model: @comment, local: true, class: "form" do |form| %>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group bmd-form-group">
+                            <%= form.text_field :content, class: "form-control", placeholder: "Contenu du commentaire" %>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    <div class="media-footer">
+                        <%= form.submit class: "btn btn-primary btn-wd float-right", value: "Poster le commentaire" %>
+                      </div>
                     <% end %>
-
-
+                  </div>
+                </div> <!-- end media-post -->
+      
+          
+              
 
 
 

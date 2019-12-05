@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     @user = User.new
   end
-
+=begin
   def create
     # Méthode qui créé un user à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
@@ -29,5 +29,5 @@ class UsersController < ApplicationController
       render :new
     end
   end
-
+=end
 end

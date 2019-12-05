@@ -12,7 +12,7 @@ def create
     
 
 
-      @comment = Comment.new(content: params[:content], user: User.find_by(id: session[:user_id]), lesson_id: params[:lesson_id])
+      @comment = Comment.new(content: params[:content], lesson_id: params[:lesson_id])
      # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
 	#on verifie que le formulaire envoie bien les params saisis code entre les puts $ non necessaire , mais qui nous permet de checker au debut 
    	  puts "*" * 10
