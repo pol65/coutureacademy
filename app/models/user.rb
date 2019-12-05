@@ -16,6 +16,7 @@ def is_teacher?
   if @current_user.taught_lessons.count > 0
   else
   end
+  end
   
   after_create :welcome_send
 
