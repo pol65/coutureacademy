@@ -97,11 +97,31 @@
                   
                 </div>
               </div>
+
+   <% @comments.each do |comment| %> <!-- comme on fait une boucle, pour chaque commentaire on aura les boutons supprime et edite et les focnstions qui vont avec-->
+    <% if @lesson.id == comment.lesson_id %>
+      <li class="list-group-item list-group-item-primary">Commentaire : <br><%= comment.content %>
+        <p> <br>
+         <% if session[:user_id]%> <!-- si le hash est bien existant dans le navigateur  -->
+
+         <!--Conditions pour supprimer ou editer un commentaire, etre l auteur du gossip ou du commentaire -->
+            <% if current_user.id == @lesson.user_id || current_user.id == comment.user_id%>
+
+        <!-- liens boutons pour supprimer et editer et pointent vers la route du commentaire specifique du gossip specifique pour lui appliquer la methode#edit dans le controller comments et la methode destroy-->
+              
+            <%end%>
+          <%end%>
+        </p>
+      </li>
+    <% end %>
+  <% end %>
+
+
             </div>
 
             <!--Le formulaire va POINTER vers la methode #create dans le controller comments Jamy, nous dit c'est pas super intuitif, mais PAR CONVENTION le POST de création va à /comments et non pas /comments/new -->
 
-       <%= form_with model: @lesson, local: true do |form| %>
+       <%= form_with model: @comment, local: true do |form| %>
                     <%= form.text_field :content %>
                     <%= form.submit %>
                     <% end %>
