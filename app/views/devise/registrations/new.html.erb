@@ -1,29 +1,87 @@
-<h2>Sign up</h2>
+<!--
+ =========================================================
+ Material Kit PRO - v2.2.0
+ =========================================================
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+ Product Page: https://themes.getbootstrap.com/product/material-kit-pro/
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+ Coded by Creative Tim
+
+ =========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<div class="page-header header-filter" style="background-image: url('http://eskipaper.com/images/background-images-1.jpg'); background-size: cover; background-position: top center;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <form class="form" action="show">  
+          <div class="card card-signup card-hidden">
+            <div class="card-header card-header-primary text-center">
+              <h4 class="card-title text-center">Inscription</h4>
+              <div class="card-body">
+                <div class="row">
+                  <div class="ml-auto mr-auto">
+                    <div class="social text-center">
+                      <button class="btn btn-just-icon btn-round btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                      </button>
+                      <button class="btn btn-just-icon btn-round btn-dribbble">
+                        <i class="fa fa-dribbble"></i>
+                      </button>
+                      <button class="btn btn-just-icon btn-round btn-facebook">
+                        <i class="fa fa-facebook"> </i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body ">
+              <p class="card-description text-center">Inscription classique</p>
+            </div>
+              <span class="bmd-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">mail</i>
+                    </span>
+                  </div>
+                    <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: "Votre email" %>
+                </div>
+              </span>
+              <span class="bmd-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                    <%= f.password_field :password, class: 'form-control', placeholder: "Mot de passe" %>
+                </div>
+              </span>
+              <span class="bmd-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Retaper le mot de passe" %>
+                </div>
+              </span>
+            
+            <div class="card-footer justify-content-center">
+              <%= f.submit "Commencer avec nous", class: 'btn btn-rose btn-link btn-lg' %>
+            </div>
+            <p class="text-center">Déja inscrit ? <%= link_to "Connectez-vous", new_user_session_path %> </p>
+          </div>
+        </form>
+          <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+    

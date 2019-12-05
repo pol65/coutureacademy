@@ -1,3 +1,66 @@
+<!--
+ =========================================================
+ Material Kit PRO - v2.2.0
+ =========================================================
+
+ Product Page: https://themes.getbootstrap.com/product/material-kit-pro/
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+ Coded by Creative Tim
+
+ =========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<div class="page-header header-filter" style="background-image: url('http://eskipaper.com/images/background-images-1.jpg'); background-size: cover; background-position: top center;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
+        <form class="form" action="show">  
+          <div class="card card-signup card-hidden">
+            <div class="card-header card-header-primary text-center">
+              <h4 class="card-title text-center">Reinitialiser le mot de passe</h4>
+            </div>
+              <span class="bmd-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                    <%= f.password_field :password, class: 'form-control', placeholder: "Nouveau mot de passe" %>
+                </div>
+              </span>
+              <span class="bmd-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">unlock_outline</i>
+                    </span>
+                  </div>
+                    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Répeter mot de passe" %>
+                </div>
+              </span>
+            
+            <div class="card-footer justify-content-center">
+              <%= f.submit "Changer le mot de passe", class: 'btn btn-rose btn-link btn-lg' %>
+            </div>
+          </div>
+        </form>
+          <% end %>
+          <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+
+
+
 <h2>Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
