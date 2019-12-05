@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="card-body ">
-              <p class="card-description text-center">Se connecter classiquement</p>
+              <p class="card-description text-center">Inscription classique</p>
             </div>
               <span class="bmd-form-group">
                 <div class="input-group">
@@ -49,7 +49,7 @@
                       <i class="material-icons">mail</i>
                     </span>
                   </div>
-                    <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: "email" %>
+                    <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: "Votre email" %>
                 </div>
               </span>
               <span class="bmd-form-group">
@@ -59,7 +59,7 @@
                       <i class="material-icons">lock_outline</i>
                     </span>
                   </div>
-                    <%= f.password_field :password, class: 'form-control', placeholder: "new-password" %>
+                    <%= f.password_field :password, class: 'form-control', placeholder: "Mot de passe" %>
                 </div>
               </span>
               <span class="bmd-form-group">
@@ -69,13 +69,14 @@
                       <i class="material-icons">lock_outline</i>
                     </span>
                   </div>
-                    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "new-password" %>
+                    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Retaper le mot de passe" %>
                 </div>
               </span>
             
             <div class="card-footer justify-content-center">
               <%= f.submit "Commencer avec nous", class: 'btn btn-rose btn-link btn-lg' %>
             </div>
+            <p class="text-center">Déja inscrit ? <%= link_to "Connectez-vous", new_user_session_path %> </p>
           </div>
         </form>
           <% end %>

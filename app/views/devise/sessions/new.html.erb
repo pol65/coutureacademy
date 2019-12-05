@@ -20,21 +20,27 @@
         <form class="form" action="show">
           <div class="card card-login card-hidden">
             <div class="card-header card-header-primary text-center">
-              <h4 class="card-title">Login</h4>
-              <div class="social-line">
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                  <i class="fa fa-facebook-square"></i>
-                </a>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                  <i class="fa fa-twitter"></i>
-                </a>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                  <i class="fa fa-google-plus"></i>
-                </a>
+              <h4 class="card-title">Se connecter</h4>
+              <div class="card-body">
+                <div class="row">
+                  <div class="ml-auto mr-auto">
+                    <div class="social text-center">
+                      <button class="btn btn-just-icon btn-round btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                      </button>
+                      <button class="btn btn-just-icon btn-round btn-dribbble">
+                        <i class="fa fa-dribbble"></i>
+                      </button>
+                      <button class="btn btn-just-icon btn-round btn-facebook">
+                        <i class="fa fa-facebook"> </i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="card-body ">
-              <p class="card-description text-center">Or Be Classical</p>
+              <p class="card-description text-center">Connection classique</p>
               <span class="bmd-form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -52,7 +58,7 @@
                       <i class="material-icons">lock_outline</i>
                     </span>
                   </div>
-                  <%= f.password_field :password, class: 'form-control', autocomplete: "current-password" %>
+                  <%= f.password_field :password, class: 'form-control', placeholder: "Mot de passe" %>
                 </div>
               </span>
             </div>
@@ -61,6 +67,7 @@
               
             </div>
             <p class="text-center">Nouveau sur le site ? <%= link_to "Inscrivez-vous", new_user_registration_path %> </p>
+            <p class="text-center">Mot de passe oublié ? <%= link_to "Reinitialiser", new_user_password_path %> </p>
           </div>
           
         </form>
