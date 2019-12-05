@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :followed_lessons, foreign_key: "student_id", class_name: "Lesson"
   has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
+  has_many :comments
 
 
   class Student < User

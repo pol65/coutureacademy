@@ -70,6 +70,9 @@
           </div>
         </div>
       </div>
+
+
+
       <div class="section section-comments">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
@@ -85,58 +88,31 @@
                   <h4 class="media-heading">Tina Andrew <small>&#xB7; 7 minutes ago</small></h4>
                   <h6 class="text-muted"></h6>
                   <p>Chance too good. God level bars. I&apos;m so proud of @LifeOfDesiigner #1 song in the country. Panda! Don&apos;t be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
-                  <div class="media-footer">
-                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
-                      <i class="material-icons">reply</i> Reply
-                    </a>
-                    <a href="#pablo" class="btn btn-danger btn-link float-right">
-                      <i class="material-icons">favorite</i> 243
-                    </a>
-                  </div>
+                  
                 </div>
               </div>
-              <div class="media">
-                <a class="float-left" href="#pablo">
-                  <div class="avatar">
-                    <img class="media-object" alt="Tim Picture" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
-                  </div>
-                </a>
-                <div class="media-body">
-                  <h4 class="media-heading">John Camber <small>&#xB7; Yesterday</small></h4>
-                  <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                  <p> Don&apos;t forget, You&apos;re Awesome!</p>
-                  <div class="media-footer">
-                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
-                      <i class="material-icons">reply</i> Répondre
-                    </a>
-                    <a href="#pablo" class="btn btn-link float-right">
-                      <i class="material-icons">favorite</i> 25
-                    </a>
-                  </div>
-                  <div class="media">
-                    <a class="float-left" href="#pablo">
-                      <div class="avatar">
-                        <img class="media-object" alt="64x64" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
-                      </div>
-                    </a>
-                    <div class="media-body">
-                      <h4 class="media-heading">Tina Andrew <small>&#xB7; 12 Hours Ago</small></h4>
-                      <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                      <p> Don&apos;t forget, You&apos;re Awesome!</p>
-                      <div class="media-footer">
-                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
-                          <i class="material-icons">reply</i> Répondre
-                        </a>
-                        <a href="#pablo" class="btn btn-link btn-secondary float-right">
-                          <i class="material-icons">favorite</i> 2
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+             
+                
+               
+                  
                 </div>
               </div>
             </div>
-            <h3 class="title text-center">Postez votre commentaire</h3>
+
+            <!--Le formulaire va POINTER vers la methode #create dans le controller comments Jamy, nous dit c'est pas super intuitif, mais PAR CONVENTION le POST de création va à /comments et non pas /comments/new -->
+
+       <%= form_with model: @lesson, local: true do |form| %>
+                    <%= form.text_field :content %>
+                    <%= form.submit %>
+                    <% end %>
+
+
+
+
+
+
+
+            <!-- <h3 class="title text-center">Postez votre commentaire</h3>
             <div class="media media-post">
               <a class="author float-left" href="#pablo">
                 <div class="avatar">
@@ -152,7 +128,8 @@
                   <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Envoyer</a>
                 </div>
               </div>
-            </div> <!-- end media-post -->
+            </div> end media-post -->
+
           </div>
         </div>
       </div>

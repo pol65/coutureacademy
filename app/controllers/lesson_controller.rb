@@ -5,7 +5,11 @@ class LessonController < ApplicationController
   end
 
   def show
+	@comment = Comment.new
     @lesson = Lesson.find(params[:id])
   end
+  	
+ 
+
   
 end
