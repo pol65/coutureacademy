@@ -1,0 +1,73 @@
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://thumbs.dreamstime.com/z/sewing-pattern-seamless-icons-31520889.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand text-center">
+            <h1 class="title"><%= params[:id] %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="container" id="courses">
+      <div class="row">
+      <% @lessons.each do |lesson|%>
+              <div class="col-md-6 col-lg-4">
+                <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
+                  <div class="card card-rotate">
+                    <div class="front front-background" style="background-image: url(&quot;https://vertcerise.com/blog/wp-content/uploads/2019/02/hoop-art-chat.jpg&quot;); width: 289.984px;">
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="#pablo"><%= lesson.title%></a>
+                        </h4>
+                        <p class="card-description">
+                          <%= lesson.content.truncate_words(25) %>
+                        </p>
+                        <div class="card-footer ">
+                    <div class="author">
+                      <a href="#pablo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="..." class="avatar img-raised"><br/>
+                        <span>Proposé par <%= lesson.teacher.username %></span>
+                      </a>
+                    </div>
+                    <div class="stats ml-auto">
+                      <i class="material-icons">schedule</i> Durée : 5h
+                    </div>
+                  </div>
+                        <div class="stats text-center">
+                          <button type="button" name="button" class="btn btn-success btn-fill btn-round btn-rotate">
+                            <i class="material-icons">refresh</i> En savoir plus
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="back" style="width: 289.984px;">
+                      <div class="card-body">
+                        <br>
+                        <h5 class="card-title">
+                          Lancez vous !
+                        </h5>
+                        <p class="card-description">
+                          Vous avez toujours voulu vous laisser dans la broderie, mais vous ne savez pas comment vous y prendre ? C'est parfait, ce cours est fait pour vous ! 
+                        </p>
+                        <div class="stats text-center">
+                          <a href="<%= lesson_path(lesson.id)%>" class="btn btn-rose btn-round">
+                            <i class="material-icons">subject</i> S'inscrire
+                          </a>
+                        </div>
+                        <br>
+                        <button type="button" name="button" class="btn btn-link btn-round btn-rotate">
+                          <i class="material-icons">refresh</i> Retour
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      <% end %>
+            </div>
+    </div>
+    </div>
+  </div>
