@@ -1,4 +1,4 @@
-class LessonController < ApplicationController
+class LessonsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
 
   def index
@@ -11,23 +11,22 @@ class LessonController < ApplicationController
   end
 
   def new
+    @lesson = Lesson.new
   end
 
   def create
-    @lesson = Lesson.create(
-      title: params[:lesson_title], 
-      content: params[:lesson_content]) 
+    @lesson = Lesson.new(
+      title: params[:lesson][:title], 
+      content: params[:lesson][:content],
+      teacher: current_user)
     if @lesson.save 
       flash[:success] = "Votre cours est en ligne !"
       redirect_to root_path
       puts "#"*10
-      puts "it worked"
+      puts params
       puts "#"*10
      else
       render "new"
-      puts "#"*10
-      puts @lesson.errors
-      puts "#"*10
     end
   end
 end

@@ -42,20 +42,12 @@
                     <h5 class="description">Vous pouvez ici proposer votre propre cours. Chaque cours est soumis à l'approbation de l'équipe de Couture Academy. N'oubliez pas la mise en forme, un pavé de texte sans chapitres ni titre sera systématiquement refusé par notre équipe.</h5>
                     <h6 class="description">S'il est accepté, votre cours sera en ligne environ 24h après sa publication.</h6>
                     <br/>
-                    <form action= "<%= lesson_index_path %>" method="POST">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <div class="form-group bmd-form-group">
-                        <label for="exampleInput1" class="bmd-label-floating">Titre</label>
-                        <input type="title" class="form-control" id="lesson_title">
-                        <span class="bmd-help">Choisissez un titre accrocheur et concis.</span>
-                    </div><br/>
-                    <div class="media-body">
-                      <span class="bmd-form-group"><textarea class="form-control" placeholder="Écrivez ici le contenu de votre cours..." rows="10" id="lesson_content"></textarea></span><br/>
-                      <div class="media-footer">
-                        <button type="submit" class="btn btn-success">Envoyer mon cours</button>
-                      </div>
-                    </div>
-                    </form>
+                    <%= form_with model: @lesson, local: true do |form| %>
+                    <%= form.text_field :title %>
+                    <%= form.text_field :content %>
+                    <%= form.submit %>
+                    <% end %>
+                    
           </div>
                 </div>
             </div>
