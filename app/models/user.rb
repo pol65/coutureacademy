@@ -16,8 +16,18 @@ class Student < User
 end
 
 class Teacher < User 
+  is_teacher?
 
 end
+
+def is_teacher? 
+  if @current_user.taught_lessons.count > 0
+    return true
+  else
+    return false 
+  end
+end
+
 
 
 
