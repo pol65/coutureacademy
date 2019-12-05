@@ -18,13 +18,11 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(
       title: params[:lesson][:title], 
       content: params[:lesson][:content],
+      category: params[:lesson][:category],
       teacher: current_user)
     if @lesson.save 
       flash[:success] = "Votre cours est en ligne !"
       redirect_to root_path
-      puts "#"*10
-      puts params
-      puts "#"*10
      else
       render "new"
     end
