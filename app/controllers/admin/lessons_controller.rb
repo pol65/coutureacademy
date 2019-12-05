@@ -3,6 +3,7 @@ class Admin::LessonsController < ApplicationController
 
     def index
         @user = current_user
+        @lessons = Lesson.all
     end
 
 

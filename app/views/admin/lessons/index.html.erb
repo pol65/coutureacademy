@@ -1,1 +1,57 @@
-<h1>Ici se trouvera la dashboard admin relatif au leçon</h1>
+ <div class="page-header header-filter" data-parallax="true" style="background-color: blue">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand text-center">
+            <h1>Cours de Couture Academy</h1>
+            <h3 class="title text-center">Allez on valide ! </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="section text-center">
+        <h2 class="title">Nos cours tous jolis tous beaux </h2>
+      </div>
+     
+      <div class="table-responsive">
+      <% @lessons.each do |lesson|%>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center">#</th>
+                        <th>Email</th>
+                        <th>Titre</th>
+                        <th>Catégorie</th>
+                        <th class="text-right">Prix</th>
+                        <th class="text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <td class="text-center"><%= lesson.id %></td>
+                        <td><%= lesson.teacher.email %></td>
+                        <td><%= lesson.title %></td>
+                        <td><%= lesson.category %></td>
+                        <td class="text-right"><%= lesson.price %> € </td>
+                        <td class="td-actions text-right">
+                          <button type="button" rel="tooltip" class="btn btn-info btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">person</i>
+                          </button>
+                          <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">edit</i>
+                          </button>
+                          <button type="button" rel="tooltip" class="btn btn-danger btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">close</i>
+                          </button>
+                        </td>
+                     
+                    </tbody>
+                  </table>
+                  <% end %>
+                </div>
+                
+                </div>
+  </div>
