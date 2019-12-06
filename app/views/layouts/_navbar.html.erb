@@ -28,7 +28,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <% if user_signed_in? %>
-              <a href="#" class="dropdown-item">Mon profil</a>
+              <%= link_to "Mon profil", user_path(current_user), methode: :get, class:"dropdown-item" %>
           <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
           <% else %>
               <%= link_to "Se connecter", new_user_session_path, class:"dropdown-item" %>
