@@ -27,7 +27,3 @@ end
 end
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b7fc54c97f7ec3b3fbbac4929bf3c0ad6da5ccc4
