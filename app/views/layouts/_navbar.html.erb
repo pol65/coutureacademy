@@ -1,4 +1,19 @@
 <nav class="navbar navbar-color-on-scroll fixed-top navbar-expand-lg navbar-transparent" color-on-scroll="100" id="sectionsNav">
+
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-<%= type %>">
+        <div class="container">
+          <div class="alert-icon" style="color:black;">
+            <i class="material-icons" ><%= material_kit_icons_flash(type) %></i>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><i class="material-icons" style="color:black;">clear</i></span>
+          </button>
+          <%= msg %>
+        </div>
+    </div>
+  <% end %>
+
   <div class="container">
     <div class="navbar-translate">
       <a class="navbar-brand" href="/"> Couture Academy </a>
