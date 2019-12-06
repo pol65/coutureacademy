@@ -12,10 +12,10 @@ has_many :followed_lessons, foreign_key: "student_id", class_name: "Lesson"
 has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
 
-def is_teacher? 
-  if @current_user.taught_lessons.count > 0
-  else
-  end
+  def is_teacher? 
+    if @current_user.taught_lessons.count > 0
+    else
+    end
   end
   
   after_create :welcome_send
@@ -24,5 +24,3 @@ def is_teacher?
     UserMailer.welcome_email(self).deliver_now
   end
 end
-
-end 
