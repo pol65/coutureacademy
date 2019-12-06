@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://thumbs.dreamstime.com/z/sewing-pattern-seamless-icons-31520889.jpg')">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://www.dempseycenter.org/wp-content/uploads/2016/07/sewing-e1471225803718.jpg')">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
@@ -34,7 +34,7 @@
             </div>
               <div class="row">
                <div class="col-md-3">
-                <div class="card card-background" style="background-image: url('https://static.pratique.fr/images/unsized/mo/mode-printemps-ete-la-tendance-est-au-tie-and-dye-istock-com-strathroy-209-1554283226.jpg')">
+                <div class="card card-background" style="background-image: url('https://s3-ap-southeast-2.amazonaws.com/assets.whatson.cityofsydney.nsw.gov.au/2018/03/Make-do-mend-Medium3-700x530.jpg')">
                   <div class="card-body">
                     <h3 class="card-title">Les bases</h3><br/><br/><br/><br/>
                     <a href="/categories/Les%20bases" class="btn btn-danger btn-round">
@@ -89,21 +89,12 @@
                           <%= lesson.category %>
                         </h5>
                         <h4 class="card-title">
-                          <a href="#pablo"><%= lesson.title%></a>
+                          <%= lesson.title%>
                         </h4>
                         <p class="card-description">
                           <%= lesson.content.truncate_words(25) %>
                         </p>
                         <div class="card-footer ">
-                    <div class="author">
-                      <a href="#pablo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="..." class="avatar img-raised"><br/>
-                        <span>Proposé par <%= lesson.teacher.username %></span>
-                      </a>
-                    </div>
-                    <div class="stats ml-auto">
-                      <i class="material-icons">schedule</i> Durée : 5h
-                    </div>
                   </div>
                         <div class="stats text-center">
                           <button type="button" name="button" class="btn btn-success btn-fill btn-round btn-rotate">
@@ -121,6 +112,12 @@
                         <p class="card-description">
                           Vous avez toujours voulu vous laisser dans la broderie, mais vous ne savez pas comment vous y prendre ? C'est parfait, ce cours est fait pour vous ! 
                         </p>
+                        <div class="author">
+                          <h6>Proposé par <%= lesson.teacher.username %></h6>
+                        </div><br/>
+                        <div class="stats">
+                          <i class="material-icons">schedule</i> Durée : 5h
+                        </div><br/>
                         <div class="stats text-center">
                           <a href="<%= lesson_path(lesson.id)%>" class="btn btn-rose btn-round">
                             <i class="material-icons">subject</i> S'inscrire
