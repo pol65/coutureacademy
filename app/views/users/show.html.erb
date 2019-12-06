@@ -25,8 +25,7 @@
               </div>
               <div class="name">
                 <h3 class="title"><%= @user.username %></h3>
-                <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6>
-                <%= link_to "Editer mon profil", edit_user_registration_path(current_user), methode: :get, class: "btn btn-rose btn-link btn-lg" %>
+                <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6>           
               </div>
             </div>
           </div>
