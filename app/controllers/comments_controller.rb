@@ -4,13 +4,12 @@ class CommentsController < ApplicationController
 	end
 
   def index
-        lesson = Lesson.find(params[:lesson_id])
   end
 
 
   
 def create
-          @comment = Comment.new(content: comment_params[:content], lesson_id: comment_params[:lesson_id], user_id: current_user.id)
+          @comment = Comment.new(content: comment_params[:content], lesson_id: comment_params[:id], user_id: current_user.id)
      puts "*" * 10
       puts "ceci est le contenu de params formulaire comments et signifie que le formulaire pointe bien sur create :"
       puts params
