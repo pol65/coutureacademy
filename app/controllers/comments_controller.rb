@@ -4,13 +4,13 @@ class CommentsController < ApplicationController
 	end
 
   def index
+        lesson = Lesson.find(params[:lesson_id])
   end
 
 
   
 def create
-      
-       @comment = Comment.new(comment_params)
+          @comment = Comment.new(content: comment_params[:content], lesson_id: comment_params[:lesson_id], user_id: current_user.id)
      puts "*" * 10
       puts "ceci est le contenu de params formulaire comments et signifie que le formulaire pointe bien sur create :"
       puts params
@@ -27,7 +27,7 @@ def create
         else
 
         	puts "@@@@@@@@@@@@"
-        	puts "commentaire pas sauvegarde"
+        	puts "commentaire non sauvegarde"
         	puts "@@@@@@@@@@@"
         	 render "new"
       end
@@ -36,7 +36,7 @@ def create
     end
   
 private def comment_params
-  params.require(:comment).permit(:content, :user, :lesson)
+  params.require(:comment).permit(:content, :lesson_id)
 end
 
 
