@@ -60,6 +60,10 @@
           <div class="tab-pane text-center gallery" id="subscribed">
             <div class="row">
               <div class="col ml-auto">
+              <% @classrooms.each do |classroom| %>
+              <p> <%= classroom.lesson.title %> </p>
+              
+                <% end %>
                 <p>Abonnement 1</p>
                 <p>Abonnement 2</p>
               </div>
@@ -68,8 +72,9 @@
           <div class="tab-pane text-center gallery" id="mycourses">
             <div class="row">
               <div class="col ml-auto">
-                <p>Cours 1</p>
-                <p>Cours 2</p>
+              <% @taught_lessons.each do |taught_lesson| %>
+                <p> <%= taught_lesson.title %> <p>
+              <% end %>
               </div>
             </div>
           </div>
