@@ -3,23 +3,20 @@ class CommentsController < ApplicationController
 		@comment = Comment.new
 	end
 
+  def index
+  end
 
+
+  
 def create
-
-
-     # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
-     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
-    
-
-
-      @comment = Comment.new(content: params[:content], lesson_id: params[:lesson_id])
-     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
-	#on verifie que le formulaire envoie bien les params saisis code entre les puts $ non necessaire , mais qui nous permet de checker au debut 
-   	  puts "*" * 10
-   	  puts "ceci est le contenu de params formulaire comments et signifie que le formulaire pointe bien sur create :"
+      
+       @comment = Comment.new(comment_params)
+     puts "*" * 10
+      puts "ceci est le contenu de params formulaire comments et signifie que le formulaire pointe bien sur create :"
       puts params
       puts "*" * 10
-   	 #OK ca envoie bien ici 
+
+
 
       if @comment.save
       	puts "$$$$$$$$$$$$$$$$$$"
@@ -32,13 +29,15 @@ def create
         	puts "@@@@@@@@@@@@"
         	puts "commentaire pas sauvegarde"
         	puts "@@@@@@@@@@@"
-        	 #redirect_to lesson_path
+        	 render "new"
       end
 
 
     end
   
-
+private def comment_params
+  params.require(:comment).permit(:content, :user, :lesson)
+end
 
 
 end
