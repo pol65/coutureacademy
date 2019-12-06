@@ -17,7 +17,7 @@
       </div>
      
       <div class="table-responsive">
-      <% @lessons.each do |lesson|%>
+      
                   <table class="table">
                     <thead>
                       <tr>
@@ -29,6 +29,7 @@
                         <th class="text-right">Actions</th>
                       </tr>
                     </thead>
+                    <% @lessons.each do |lesson|%>
                     <tbody>
                       
                         <td class="text-center"><%= lesson.id %></td>
@@ -49,8 +50,9 @@
                         </td>
                      
                     </tbody>
+                     <% end %>
                   </table>
-                  <% end %>
+                 
                 </div>
                 
                 </div>
