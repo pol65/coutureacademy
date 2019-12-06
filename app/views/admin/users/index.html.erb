@@ -23,9 +23,9 @@
                     <thead>
                       <tr>
                         <th class="text-center">#</th>
-                        <th>Email</th>
                         <th>Username</th>
-                        <th>Professeur</th>
+                        <th>Email</th>
+                        <th>Cours fournis</th>
                         <th class="text-right">Cours suivis</th>
                         <th class="text-right">Actions</th>
                       </tr>
@@ -34,9 +34,9 @@
                     <tbody>
                        
                         <td class="text-center"><%= user.id %></td>
-                        <td><%= user.email %></td>
                         <td><%= user.username %></td>
-                        <td>  </td>
+                        <td><%= user.email %></td>
+                        <td><%= user.taught_lessons.count %> </td>
                         <td class="text-right"><%= Classroom.where(student_id: user.id).count %>   </td>
                         <td class="td-actions text-right">
                           <button type="button" rel="tooltip" class="btn btn-info btn-just-icon btn-sm" data-original-title="" title="">
