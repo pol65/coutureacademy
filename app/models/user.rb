@@ -23,10 +23,4 @@ has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
-<<<<<<< HEAD
 end
-=======
-end
-
-
->>>>>>> b7fc54c97f7ec3b3fbbac4929bf3c0ad6da5ccc4
