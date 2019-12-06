@@ -12,7 +12,15 @@
     <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a href="#courses" class="nav-link"> Tous les cours </a>
+        <a href="/lessons/new">
+        <button class="btn btn-success btn-round">
+                <i class="material-icons">create</i> Proposer un cours
+              <div class="ripple-container"></div>
+        </button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/#courses" class="nav-link"> Tous les cours </a>
       </li>
       <li class="nav-item">
         <a href="/static_pages/faq" class="nav-link"> FAQ </a>
@@ -28,8 +36,8 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <% if user_signed_in? %>
-              <a href="#" class="dropdown-item">Mon profil</a>
-          <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+              <%= link_to "Mon profil", user_path(current_user), class:"dropdown-item" %>
+              <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
           <% else %>
               <%= link_to "Se connecter", new_user_session_path, class:"dropdown-item" %>
               <%= link_to "Créer un compte", new_user_registration_path, class:"dropdown-item" %>

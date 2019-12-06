@@ -24,15 +24,18 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h3 class="title"><%= @user.username.capitalize %></h3>
+                <h3 class="title"><%= @user.username %></h3>
                 <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6>
+                <%= link_to "Editer mon profil", edit_user_registration_path(current_user), methode: :get, class: "btn btn-rose btn-link btn-lg" %>
               </div>
             </div>
           </div>
         </div>
         <div class="description text-center">
           <p> <%= @user.description %> </p><br/><br/>
+          <a href="/lessons/new">
           <button class="btn btn-success btn-lg btn-round">Proposer un cours<div class="ripple-container"></div></button>
+          </a>
         </div>
         <div class="row">
           <div class="col-md-6 ml-auto mr-auto">
