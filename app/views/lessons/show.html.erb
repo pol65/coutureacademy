@@ -129,7 +129,7 @@
                   </a>
                   <div class="media-body">
                     <div class="media-body">
-                    <%= form_with model: @comment, local: true, class: "form" do |form| %>
+                    <%= form_with model: @comment, url: [@lesson, @comment], local: true, class: "form" do |form| %>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group bmd-form-group">
