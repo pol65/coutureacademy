@@ -37,6 +37,7 @@
         <div class="dropdown-menu dropdown-menu-right">
           <% if user_signed_in? %>
               <%= link_to "Mon profil", user_path(current_user), class:"dropdown-item" %>
+              <%= link_to "Editer mon profil", edit_user_registration_path(current_user), methode: :get, class:"dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
           <% else %>
               <%= link_to "Se connecter", new_user_session_path, class:"dropdown-item" %>
