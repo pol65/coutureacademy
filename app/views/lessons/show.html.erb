@@ -73,50 +73,33 @@
 
 
 
+
       <div class="section section-comments">
-        <div class="row">
+        <div class="row">        
           <div class="col-md-8 ml-auto mr-auto">
+              <% @comments.each do |comment| %>
+
             <div class="media-area">
-              <h3 class="title text-center">Commentaires</h3>
+
               <div class="media">
                 <a class="float-left" href="#pablo">
                   <div class="avatar">
                     <img class="media-object" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="...">
                   </div>
                 </a>
+                 <% if @lesson.id == comment.lesson_id %>
+      
                 <div class="media-body">
-                  <h4 class="media-heading">Tina Andrew <small>&#xB7; 7 minutes ago</small></h4>
+                  <h4 class="media-heading"><%= comment.user.username %><small>&#xB7; 7 minutes ago</small></h4>
                   <h6 class="text-muted"></h6>
-                  <p>Chance too good. God level bars. I&apos;m so proud of @LifeOfDesiigner #1 song in the country. Panda! Don&apos;t be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
-                  
+                  <p><%= comment.content %></p>
+                          
+                  </div>
+                 <%end%>
+                 </div>                
                 </div>
+               <%end%>
               </div>
-             
-                
-               
-                  
-                </div>
-              </div>
-
-   <% @comments.each do |comment| %> <!-- comme on fait une boucle, pour chaque commentaire on aura les boutons supprime et edite et les focnstions qui vont avec-->
-    <% if @lesson.id == comment.lesson_id %>
-      <li class="list-group-item list-group-item-primary">Commentaire : <br><%= comment.content %>
-        <p> <br>
-         <% if session[:user_id]%> <!-- si le hash est bien existant dans le navigateur  -->
-
-         <!--Conditions pour supprimer ou editer un commentaire, etre l auteur du gossip ou du commentaire -->
-            <% if current_user.id == @lesson.user_id || current_user.id == comment.user_id%>
-
-        <!-- liens boutons pour supprimer et editer et pointent vers la route du commentaire specifique du gossip specifique pour lui appliquer la methode#edit dans le controller comments et la methode destroy-->
-              
-            <%end%>
-          <%end%>
-        </p>
-      </li>
-    <% end %>
-  <% end %>
-
-
             </div>
 
             <!--Le formulaire va POINTER vers la methode #create dans le controller comments Jamy, nous dit c'est pas super intuitif, mais PAR CONVENTION le POST de création va à /comments et non pas /comments/new -->
@@ -144,31 +127,6 @@
                     <% end %>
                   </div>
                 </div> <!-- end media-post -->
-      
-          
-              
-
-
-
-
-
-            <!-- <h3 class="title text-center">Postez votre commentaire</h3>
-            <div class="media media-post">
-              <a class="author float-left" href="#pablo">
-                <div class="avatar">
-                  <img class="media-object" alt="64x64" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
-                </div>
-              </a>
-              <div class="media-body">
-                <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Merci de rester civil.e et poli.e.</label>
-                  <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
-                </div>
-                <div class="media-footer">
-                  <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Envoyer</a>
-                </div>
-              </div>
-            </div> end media-post -->
 
           </div>
         </div>
