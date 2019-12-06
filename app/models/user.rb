@@ -24,4 +24,3 @@ has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
     UserMailer.welcome_email(self).deliver_now
   end
 end
-end
