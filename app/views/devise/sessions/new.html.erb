@@ -23,24 +23,10 @@
               <h4 class="card-title">Se connecter</h4>
               <div class="card-body">
                 <div class="row">
-                  <div class="ml-auto mr-auto">
-                    <div class="social text-center">
-                      <button class="btn btn-just-icon btn-round btn-twitter">
-                        <i class="fa fa-twitter"></i>
-                      </button>
-                      <button class="btn btn-just-icon btn-round btn-dribbble">
-                        <i class="fa fa-dribbble"></i>
-                      </button>
-                      <button class="btn btn-just-icon btn-round btn-facebook">
-                        <i class="fa fa-facebook"> </i>
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
             <div class="card-body ">
-              <p class="card-description text-center">Connection classique</p>
               <span class="bmd-form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -67,7 +53,7 @@
               
             </div>
             <p class="text-center">Nouveau sur le site ? <%= link_to "Inscrivez-vous", new_user_registration_path %> </p>
-            <p class="text-center">Mot de passe oublié ? <%= link_to "Reinitialiser", new_user_password_path %> </p>
+            <p class="text-center"><%= link_to "Mot de passe oublié ?", new_user_password_path %> </p>
           </div>
           
         </form>
