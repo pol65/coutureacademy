@@ -23,22 +23,18 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group bmd-form-group">
-                            <%= form.select :category, [
-                              'Les bases',
-                              'Couture',
-                              'Broderie',
-                              'Modélisme'] %>
+                            <%= form.select :category,['Choisissez une catégorie', 'Les bases', 'Couture', 'Broderie', 'Modélisme'], disabled: 'Choisissez une catégorie' %>
                           </div>
                         </div>
                       </div>
                       <span class="bmd-form-group">
-                      <%= form.text_area :content, class: "form-control", placeholder: "Pensez à mettre en forme correctement votre texte...", rows: "20" %>
+                      <%= form.text_area :content, class: "form-control", placeholder: "Pensez à mettre en forme correctement votre texte...", rows: "10" %>
                       </span>
                       <div class="media-footer">
-                        <%= form.submit class: "btn btn-success", value: "Poster le cours" %>
+                        <%= form.submit class: "btn btn-success btn-round", value: "Poster le cours" %>
                       </div>
                     <% end %>
-                  </div><!-- end media-body -->
+                  </div>
                 </div>
 
                 </div>
