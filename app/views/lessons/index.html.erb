@@ -92,7 +92,7 @@
                           <%= lesson.title%>
                         </h4>
                         <p class="card-description">
-                          <%= lesson.content.truncate_words(25) %>
+                          <div class="trix-content"><%= raw(lesson.content).truncate_words(25) %></div>
                         </p>
                         <div class="card-footer ">
                   </div>
