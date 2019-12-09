@@ -19,6 +19,7 @@ class LessonsController < ApplicationController
       title: params[:lesson][:title], 
       content: params[:lesson][:content],
       category: params[:lesson][:category],
+      price: params[:lesson][:price],
       teacher: current_user)
     if @lesson.save 
       flash[:success] = "Votre cours est en ligne !"
