@@ -1,5 +1,5 @@
 class Admin::LessonsController < ApplicationController
-    before_action :authenticate_user!, :is_admin?
+    before_action :authenticate_user!
 
     def index
         @users = User.all

@@ -20,7 +20,11 @@
         <div class="row">
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
-              <div class="avatar">
+              <div class="avatar">3	23. Les bases en Couture	Broderie	couture-academy15@yopmail.com	￼done_outline ￼edit ￼close
+20	La broderie version 4	Couture	thp972@gmail.com	￼done_outline ￼edit ￼close
+21	La broderie version 5	Couture	thp972@gmail.com	￼done_outline ￼edit ￼close
+4	24. Les bases en Couture	Couture	couture-academy19@yopmail.com	￼done_outline ￼edit ￼close
+21	La broderie version 5	Couture	thp972@gmail.com	￼done_outline ￼edit ￼closei
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
@@ -103,9 +107,43 @@
           <div class="tab-pane text-center gallery" id="mycourses">
             <div class="row">
               <div class="col ml-auto">
-              <% @taught_lessons.each do |taught_lesson| %>
-                <p> <%= taught_lesson.title %> <p>
-              <% end %>
+              <div class="table-responsive">
+    
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center">#</th>
+                        <th>Titre du cours</th>
+                        <th>Catégorie</th>
+                        <th>Nombre élève</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <% @taught_lessons.each do |taught_lesson| %>
+                    <tbody>
+                      
+                        <td class="text-center"><%= taught_lesson.id %></td>
+                        <td><%= taught_lesson.title %></td>
+                        <td> <%= taught_lesson.category %> </td>
+                        <td><%=Classroom.where(lesson_id: taught_lesson).count %>   </td>
+                        <td class="td-actions text-right">
+                          <button type="button" rel="tooltip"  class="btn btn-info btn-just-icon btn-sm" data-original-title="" title=""  >
+                            <i class="material-icons">done_outline</i>
+                          </button>
+                          <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">edit</i>
+                          </button>
+                          <button type="button" rel="tooltip" class="btn btn-danger btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">close</i>
+                          </button>
+                        </td>
+                    
+                    </tbody>
+                    <% end %>
+                  </table>
+                  
+      </div>
+          
               </div>
             </div>
           </div>
