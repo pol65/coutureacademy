@@ -10,6 +10,9 @@ class LessonsController < ApplicationController
     @comment = Comment.new
     @comments = Comment.all
     @lesson = Lesson.find(params[:id])
+    @classrooms = Classroom.all
+    @user = User.find(params[:id])
+    @classroom = Classroom.find(params[:id])
   end
 
   def new
@@ -30,11 +33,6 @@ class LessonsController < ApplicationController
     end
   end
   
-  def suscribe
-    suscribe = current_user.taught_lessons
-  end
-
-
 
 end
 
