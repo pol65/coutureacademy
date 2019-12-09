@@ -25,7 +25,7 @@
       <div class="section section-text">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
-            <% if current_user.id == @classroom.student_id %>
+            <% if @classroom.student_id == current_user.id %>
               <%= link_to "Inscris" , class:"btn btn-primary btn-round" %>
               <% else %>
                 <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
