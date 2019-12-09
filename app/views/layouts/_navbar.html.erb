@@ -46,11 +46,9 @@
       <li class="dropdown nav-item">
         <a href="#" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
           <div class="profile-photo-small">
-          <%if @user.avatar.attached?%>
-          <%= image_tag @user.avatar, alt: 'avatar', class:"img-raised rounded-circle img-fluid" %>
-        <%else%>
+
           <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-        <%end%>
+        
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
