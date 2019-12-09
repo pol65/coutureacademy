@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 
   
 def create
+
           @comment = Comment.new(comment_params)
           @comment.lesson = Lesson.find(params[:lesson_id])
           @comment.user = current_user
