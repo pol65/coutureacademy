@@ -15,7 +15,7 @@ has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
 validates :username, presence: true
 validates :username, uniqueness: true
-validates :description, lenght: {minimum: 100}
+validates :description, length: {minimum: 100}
 
 
 
