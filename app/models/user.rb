@@ -12,6 +12,16 @@ has_many :followed_lessons, foreign_key: "student_id", class_name: "Lesson"
 has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
 
+
+validates :username, presence: true
+validates :username, uniqueness: true
+validates :description, lenght: {minimum: 100}
+
+
+
+
+
+
 def is_teacher? 
   if @current_user.taught_lessons.count > 0
   else
