@@ -53,7 +53,9 @@
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
           
-          
+                 <% if user_suscribe ? %>
+              <%= link_to "Inscris" %>
+              <% else %>
                 <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
               <div class="ripple-container"></div>
           
