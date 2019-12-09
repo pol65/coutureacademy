@@ -1,4 +1,19 @@
 <nav class="navbar navbar-color-on-scroll fixed-top navbar-expand-lg navbar-transparent" color-on-scroll="100" id="sectionsNav">
+
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-<%= type %>">
+        <div class="container">
+          <div class="alert-icon" style="color:black;">
+            <i class="material-icons" ><%= material_kit_icons_flash(type) %></i>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><i class="material-icons" style="color:black;">clear</i></span>
+          </button>
+          <%= msg %>
+        </div>
+    </div>
+  <% end %>
+
   <div class="container">
     <div class="navbar-translate">
       <a class="navbar-brand" href="/"> Couture Academy </a>
@@ -37,6 +52,7 @@
         <div class="dropdown-menu dropdown-menu-right">
           <% if user_signed_in? %>
               <%= link_to "Mon profil", user_path(current_user), class:"dropdown-item" %>
+              <%= link_to "Editer mon profil", edit_user_registration_path(current_user), methode: :get, class:"dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
           <% else %>
               <%= link_to "Se connecter", new_user_session_path, class:"dropdown-item" %>
