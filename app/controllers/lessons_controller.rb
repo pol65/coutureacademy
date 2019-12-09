@@ -29,4 +29,12 @@ class LessonsController < ApplicationController
       render "new"
     end
   end
+  
+  def suscribe
+    suscribe = current_user.taught_lessons
+  end
+
+
+
 end
+
