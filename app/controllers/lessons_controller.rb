@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :destroy]
+  before_action :authenticate_user!, only: [:new]
 
 
   def index
