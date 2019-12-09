@@ -24,15 +24,17 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h3 class="title"><%= @user.username.capitalize %></h3>
-                <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6>
+                <h3 class="title"><%= @user.username %></h3>
+                <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6>           
               </div>
             </div>
           </div>
         </div>
         <div class="description text-center">
           <p> <%= @user.description %> </p><br/><br/>
+          <a href="/lessons/new">
           <button class="btn btn-success btn-lg btn-round">Proposer un cours<div class="ripple-container"></div></button>
+          </a>
         </div>
         <div class="row">
           <div class="col-md-6 ml-auto mr-auto">
@@ -58,6 +60,10 @@
           <div class="tab-pane text-center gallery" id="subscribed">
             <div class="row">
               <div class="col ml-auto">
+              <% @classrooms.each do |classroom| %>
+              <p> <%= classroom.lesson.title %> </p>
+              
+                <% end %>
                 <p>Abonnement 1</p>
                 <p>Abonnement 2</p>
               </div>
@@ -66,8 +72,9 @@
           <div class="tab-pane text-center gallery" id="mycourses">
             <div class="row">
               <div class="col ml-auto">
-                <p>Cours 1</p>
-                <p>Cours 2</p>
+              <% @taught_lessons.each do |taught_lesson| %>
+                <p> <%= taught_lesson.title %> <p>
+              <% end %>
               </div>
             </div>
           </div>

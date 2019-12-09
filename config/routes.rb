@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   root 'lessons#index'
   devise_for :users
   resources :users
-  resources :lessons
+  
+  resources :lessons do 
+    resources :classrooms
+  end
   resources :categories, only: [:show]
+ 
+  
   get 'static_pages/contact'
   get 'static_pages/about'
   get 'static_pages/faq'

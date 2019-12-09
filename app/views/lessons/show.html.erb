@@ -46,11 +46,17 @@
       </div>
     </div>
   </div>
+  
   <div class="main main-raised">
     <div class="container">
       <div class="section section-text">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
+          
+          
+                <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
+              <div class="ripple-container"></div>
+          
             <p><%= @lesson.content %></p>
           </div>
         </div>
