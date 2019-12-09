@@ -1,4 +1,8 @@
 class LessonsController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new, :destroy]
+
+
   def index
     @lessons = Lesson.all
     @users = User.all
@@ -21,7 +25,7 @@ class LessonsController < ApplicationController
     if @lesson.save 
       flash[:success] = "Votre cours est en ligne !"
       redirect_to root_path
-     else
+    else
       render "new"
     end
   end
@@ -34,9 +38,11 @@ class LessonsController < ApplicationController
     if @lesson.destroy 
       flash[:warning] = "Votre cours a bien été supprimé !"
       redirect_to root_path
-     else
+    else
       render "new"
     end
   end
+
+
   
 end
