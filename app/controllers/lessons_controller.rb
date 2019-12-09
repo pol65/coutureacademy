@@ -25,4 +25,18 @@ class LessonsController < ApplicationController
       render "new"
     end
   end
+
+
+
+  def destroy
+    @lesson = Lesson.find(params[:id])
+    Lesson.destroy(@lesson.id)
+    if @lesson.destroy 
+      flash[:warning] = "Votre cours a bien été supprimé !"
+      redirect_to root_path
+     else
+      render "new"
+    end
+  end
+  
 end
