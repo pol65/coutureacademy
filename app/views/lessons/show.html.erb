@@ -25,10 +25,10 @@
       <div class="section section-text">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
-            <% if current_user = @classroom.@user %>
-              <%= f.submit "Inscris" , class:"btn btn-primary btn-round" %>
+            <% if current_user.id == @classroom.student_id %>
+              <%= link_to "Inscris" , class:"btn btn-primary btn-round" %>
               <% else %>
-                <%= f.submit "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
+                <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
               <div class="ripple-container"></div>
                <% end %>
             <p><%= @lesson.content %></p>
