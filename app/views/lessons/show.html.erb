@@ -12,27 +12,6 @@
 
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    <%= @lesson.title %>
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="../assets/css/material-kit.css?v=2.2.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
-  <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
-</head>
 
 <body class="blog-post sidebar-collapse">
   <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://static.wixstatic.com/media/40da79353be1422480640cb59eb29b1f.jpg/v1/fill/w_2313,h_1301,al_c,q_85/40da79353be1422480640cb59eb29b1f.jpg');">
@@ -71,60 +50,39 @@
         </div>
       </div>
 
-
-
-
       <div class="section section-comments">
         <div class="row">        
           <div class="col-md-8 ml-auto mr-auto">
-              <% @comments.each do |comment| %>
 
             <div class="media-area">
-<<<<<<< HEAD
               <h3 class="title text-center">Commentaires</h3>
               <% @comments.each do |comment| %> <!-- comme on fait une boucle, pour chaque commentaire on aura les boutons supprime et edite et les focnstions qui vont avec-->
                 <% if @lesson.id == comment.lesson_id %>
               <div class="media">  
                 <a class="float-left" href="#">
-=======
-
-              <div class="media">
-                <a class="float-left" href="#pablo">
->>>>>>> 450c10396c4f9b189ebb83878e726ccd2e7e41b8
                   <div class="avatar">
                     <img class="media-object" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="...">
                   </div>
                 </a>
-                 <% if @lesson.id == comment.lesson_id %>
+                <% if @lesson.id == comment.lesson_id %>
       
                 <div class="media-body">
-<<<<<<< HEAD
                   <h4 class="media-heading"><%= @comment.user %><small>&#xB7; 7 minutes ago</small></h4>
                   <h6 class="text-muted"></h6>
                   <p><%= comment.content %></p>
                   <br>
                     <% if session[:user_id]%> <!-- si le hash est bien existant dans le navigateur  -->
                     <!--Conditions pour supprimer ou editer un commentaire, etre l auteur du gossip ou du commentaire -->
-                    <% if current_user.id == @lesson.user_id || current_user.id == comment.user_id%>
+                      <% if current_user.id == @lesson.user_id || current_user.id == comment.user_id%>
+                      <%end%>
                     <%end%>
-                    <%end%>
-                    </div>   
-                </div>
-                  <% end %>
-                  <% end %>
-              
-=======
-                  <h4 class="media-heading"><%= comment.user.username %><small>&#xB7; 7 minutes ago</small></h4>
-                  <h6 class="text-muted"></h6>
-                  <p><%= comment.content %></p>
-                          
-                  </div>
-                 <%end%>
-                 </div>                
-                </div>
-               <%end%>
+                </div>   
               </div>
->>>>>>> 450c10396c4f9b189ebb83878e726ccd2e7e41b8
+                  <% end %>
+                <% end %>
+              <% end %>
+
+              
             </div>
           </div>
 
@@ -135,66 +93,33 @@
 
             <!--Le formulaire va POINTER vers la methode #create dans le controller comments Jamy, nous dit c'est pas super intuitif, mais PAR CONVENTION le POST de création va à /comments et non pas /comments/new -->
          
-          <h3 class="text-center">Laissez votre commentaire <br></h3>
-          
-          <div class="media media-post">
-            <a class="author float-left" href="#">
-              <div class="avatar">
+        <h3 class="text-center">Laissez votre commentaire <br></h3>
+         
+        <div class="media media-post">
+          <a class="author float-left" href="#">
+            <div class="avatar">
                 <img class="media-object" alt="64x64" src="./assets/img/faces/avatar.jpg">
-              </div>
-            </a>
+            </div>
+          </a>
+          <div class="media-body">
             <div class="media-body">
-              <div class="media-body">
                 <%= form_with model: @comment, url: [@lesson, @comment], local: true, class: "form" do |form| %>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group bmd-form-group">
-                        <%= form.text_field :content, class: "form-control", placeholder: "Contenu du commentaire" %>
-                      </div>
-                    </div>          
-                  </div>
-                  <div class="media-footer">
-                    <%= form.submit class: "btn btn-primary btn-wd float-right", value: "Poster le commentaire" %>
-                  </div>
-<<<<<<< HEAD
-                    <% end %>
-                </div>
-              </div> 
-              <!-- end media-post -->
-      
-          
-              
-
-
-
-
-
-            <!-- <h3 class="title text-center">Postez votre commentaire</h3>
-            <div class="media media-post">
-              <a class="author float-left" href="#pablo">
-                <div class="avatar">
-                  <img class="media-object" alt="64x64" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
-                </div>
-              </a>
-              <div class="media-body">
-                <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Merci de rester civil.e et poli.e.</label>
-                  <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group bmd-form-group">
+                      <%= form.text_field :content, class: "form-control", placeholder: "Contenu du commentaire" %>                     
+                  </div>          
                 </div>
                 <div class="media-footer">
-                  <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Envoyer</a>
+                    <%= form.submit class: "btn btn-primary btn-wd float-right", value: "Poster le commentaire" %>
                 </div>
+                    <% end %>
               </div>
-            </div> end media-post -->
-=======
-                </div> <!-- end media-post -->
->>>>>>> 450c10396c4f9b189ebb83878e726ccd2e7e41b8
-
+            </div> 
+            
           </div>
         </div>
       </div>
     </div>
   </div>
 </body>
-
-</html>
