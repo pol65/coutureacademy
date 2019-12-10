@@ -1,15 +1,10 @@
 class Lesson < ApplicationRecord
-<<<<<<< HEAD
 
     has_many   :classrooms, dependent: :destroy
-=======
-    has_many   :classrooms
->>>>>>> development
     has_many   :students, class_name: "User" , through: :classrooms
     
     belongs_to :teacher, class_name: "User"
 
-<<<<<<< HEAD
 
     validates :title, :content, :category,   presence: true 
     validates :title, uniqueness: true 
@@ -18,6 +13,4 @@ class Lesson < ApplicationRecord
     validates :content, length: {minimum: 50 }
    # validates :price, :numericality => { :greater_than_or_equal_to => 0.0 }
 
-=======
->>>>>>> development
 end
