@@ -13,7 +13,22 @@ has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
 
   def self.from_facebook(auth)
-    where
+    where(facebook_id: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.username = auth.info.name 
+      user.password = Devise.friendly_token[0, 20]
+      user.skip_confirmation!
+    end
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions.to_hash).where("lower(username) = :value", value: login.downcase).first
+    else
+      where(conditions.to_hash).first
+    end
+  end
 
   def is_teacher? 
     if @current_user.taught_lessons.count > 0

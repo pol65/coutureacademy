@@ -16,7 +16,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-        <%= link_to "Se connecter via Facebook", user_omniauth_authorize_path %>
+        <%= link_to "Se connecter via Facebook", user_facebook_omniauth_authorize_path %>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <form class="form" action="show">
           <div class="card card-login card-hidden">
