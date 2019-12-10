@@ -62,7 +62,7 @@
 
             <div class="media-area">
               <h3 class="title text-center">Commentaires</h3>
-              <% @comments.each do |comment| %> <!-- comme on fait une boucle, pour chaque commentaire on aura les boutons supprime et edite et les focnstions qui vont avec-->
+              <% @comments.each do |comment| %>  
                 <% if @lesson.id == comment.lesson_id %>
               <div class="media">  
                 <a class="float-left" href="#">
