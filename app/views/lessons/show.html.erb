@@ -8,10 +8,6 @@
  =========================================================
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
-<<<<<<< HEAD
-
-=======
->>>>>>> development
 <body class="blog-post sidebar-collapse">
   <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://static.wixstatic.com/media/40da79353be1422480640cb59eb29b1f.jpg/v1/fill/w_2313,h_1301,al_c,q_85/40da79353be1422480640cb59eb29b1f.jpg');">
     <div class="container">
@@ -29,10 +25,7 @@
       <div class="section section-text">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
-<<<<<<< HEAD
-                <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"%><br/><br/>
-            <div class="trix-content"><%= raw(@lesson.content) %></div>
-=======
+            
             <% if is_student_to_current_lesson(@lesson)  %>
               <a class="btn btn-primary btn-round" href="#" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inscrit.e</font></font></a>
               <div class="ripple-container"></div>
@@ -41,7 +34,6 @@
               <div class="ripple-container"></div>
                <% end %>
             <p><%= @lesson.content %></p>
->>>>>>> development
           </div>
         </div>
       </div>
@@ -60,23 +52,12 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-
-      <div class="section section-comments">
-        <div class="row">        
-          <div class="col-md-8 ml-auto mr-auto">
-
-            <div class="media-area">
-              <h3 class="title text-center">Commentaires</h3>
-              <% @comments.each do |comment| %>  
-=======
       <div class="section section-comments">
         <div class="row">        
           <div class="col-md-8 ml-auto mr-auto">
             <div class="media-area">
               <h3 class="title text-center">Commentaires</h3>
               <% @comments.each do |comment| %> 
->>>>>>> development
                 <% if @lesson.id == comment.lesson_id %>
               <div class="media">  
                 <a class="float-left" href="#">
@@ -85,14 +66,9 @@
                   </div>
                 </a>
                 <% if @lesson.id == comment.lesson_id %>
-<<<<<<< HEAD
       
                 <div class="media-body">
                   <h4 class="media-heading"><%= current_user.username %><small>&#xB7; 7 minutes ago</small></h4>
-=======
-                <div class="media-body">
-                  <h4 class="media-heading"><%= @comment.user %><small>&#xB7; 7 minutes ago</small></h4>
->>>>>>> development
                   <h6 class="text-muted"></h6>
                   <p><%= comment.content %></p>
                   <br>
