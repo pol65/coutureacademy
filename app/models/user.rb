@@ -12,6 +12,8 @@ has_many  :lessons, through: :classrooms
 has_many :followed_lessons, foreign_key: "student_id", class_name: "Lesson"
 has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
+has_many :comments
+
 
 
 validates :username, presence: true

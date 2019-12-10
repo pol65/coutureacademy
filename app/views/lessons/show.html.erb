@@ -1,3 +1,13 @@
+<!--
+ =========================================================
+ Material Kit PRO - v2.2.0
+ =========================================================
+ Product Page: https://themes.getbootstrap.com/product/material-kit-pro/
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+ Coded by Creative Tim
+ =========================================================
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 <body class="blog-post sidebar-collapse">
   <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://static.wixstatic.com/media/40da79353be1422480640cb59eb29b1f.jpg/v1/fill/w_2313,h_1301,al_c,q_85/40da79353be1422480640cb59eb29b1f.jpg');">
     <div class="container">
@@ -10,14 +20,19 @@
       </div>
     </div>
   </div>
-  
   <div class="main main-raised">
     <div class="container">
       <div class="section section-text">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
-                <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"%><br/><br/>
-            <div class="trix-content"><%= raw(@lesson.content) %></div>
+            <% if is_student_to_current_lesson(@lesson)  %>
+              <a class="btn btn-primary btn-round" href="#" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inscrit.e</font></font></a>
+              <div class="ripple-container"></div>
+              <% else %>
+                <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
+              <div class="ripple-container"></div>
+               <% end %>
+            <p><%= @lesson.content %></p>
           </div>
         </div>
       </div>
@@ -37,88 +52,59 @@
         </div>
       </div>
       <div class="section section-comments">
-        <div class="row">
+        <div class="row">        
           <div class="col-md-8 ml-auto mr-auto">
             <div class="media-area">
               <h3 class="title text-center">Commentaires</h3>
-              <div class="media">
-                <a class="float-left" href="#pablo">
+              <% @comments.each do |comment| %> 
+                <% if @lesson.id == comment.lesson_id %>
+              <div class="media">  
+                <a class="float-left" href="#">
                   <div class="avatar">
                     <img class="media-object" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="...">
                   </div>
                 </a>
+                <% if @lesson.id == comment.lesson_id %>
                 <div class="media-body">
-                  <h4 class="media-heading">Tina Andrew <small>&#xB7; 7 minutes ago</small></h4>
+                  <h4 class="media-heading"><%= @comment.user %><small>&#xB7; 7 minutes ago</small></h4>
                   <h6 class="text-muted"></h6>
-                  <p>Chance too good. God level bars. I&apos;m so proud of @LifeOfDesiigner #1 song in the country. Panda! Don&apos;t be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
-                  <div class="media-footer">
-                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
-                      <i class="material-icons">reply</i> Reply
-                    </a>
-                    <a href="#pablo" class="btn btn-danger btn-link float-right">
-                      <i class="material-icons">favorite</i> 243
-                    </a>
-                  </div>
-                </div>
+                  <p><%= comment.content %></p>
+                  <br>
+                    <% if session[:user_id]%> 
+                      <% if current_user.id == @lesson.user_id || current_user.id == comment.user_id%>
+                      <%end%>
+                    <%end%>
+                </div>   
               </div>
-              <div class="media">
-                <a class="float-left" href="#pablo">
-                  <div class="avatar">
-                    <img class="media-object" alt="Tim Picture" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
-                  </div>
-                </a>
-                <div class="media-body">
-                  <h4 class="media-heading">John Camber <small>&#xB7; Yesterday</small></h4>
-                  <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                  <p> Don&apos;t forget, You&apos;re Awesome!</p>
-                  <div class="media-footer">
-                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
-                      <i class="material-icons">reply</i> Répondre
-                    </a>
-                    <a href="#pablo" class="btn btn-link float-right">
-                      <i class="material-icons">favorite</i> 25
-                    </a>
-                  </div>
-                  <div class="media">
-                    <a class="float-left" href="#pablo">
-                      <div class="avatar">
-                        <img class="media-object" alt="64x64" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
-                      </div>
-                    </a>
-                    <div class="media-body">
-                      <h4 class="media-heading">Tina Andrew <small>&#xB7; 12 Hours Ago</small></h4>
-                      <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                      <p> Don&apos;t forget, You&apos;re Awesome!</p>
-                      <div class="media-footer">
-                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
-                          <i class="material-icons">reply</i> Répondre
-                        </a>
-                        <a href="#pablo" class="btn btn-link btn-secondary float-right">
-                          <i class="material-icons">favorite</i> 2
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  <% end %>
+                <% end %>
+              <% end %>
             </div>
-            <h3 class="title text-center">Postez votre commentaire</h3>
-            <div class="media media-post">
-              <a class="author float-left" href="#pablo">
-                <div class="avatar">
-                  <img class="media-object" alt="64x64" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png">
-                </div>
-              </a>
-              <div class="media-body">
-                <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Merci de rester civil.e et poli.e.</label>
-                  <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
+          </div>
+        </div>
+ 
+        <h3 class="text-center">Laissez votre commentaire <br></h3>
+        <div class="media media-post">
+          <a class="author float-left" href="#">
+            <div class="avatar">
+                <img class="media-object" alt="64x64" src="./assets/img/faces/avatar.jpg">
+            </div>
+          </a>
+          <div class="media-body">
+            <div class="media-body">
+                <%= form_with model: @comment, url: [@lesson, @comment], local: true, class: "form" do |form| %>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group bmd-form-group">
+                      <%= form.text_field :content, class: "form-control", placeholder: "Contenu du commentaire" %>                     
+                  </div>          
                 </div>
                 <div class="media-footer">
-                  <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Envoyer</a>
+                    <%= form.submit class: "btn btn-primary btn-wd float-right", value: "Poster le commentaire" %>
                 </div>
+                    <% end %>
               </div>
-            </div> <!-- end media-post -->
+            </div> 
           </div>
         </div>
       </div>

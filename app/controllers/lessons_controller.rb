@@ -9,7 +9,14 @@ class LessonsController < ApplicationController
   end
  
   def show
-   @lesson = Lesson.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.all
+    @lesson = Lesson.find(params[:id])
+    @classrooms = Classroom.all
+    @user = User.find(params[:id])
+    @classroom = Classroom.find(params[:id])
+    @students = [Lesson.find(params[:id]).students]
+    
   end
   
   def new
