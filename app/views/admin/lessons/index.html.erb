@@ -79,15 +79,14 @@
                         <td><%= lesson.category %></td>
                         <td class="text-right"><%= lesson.price %> € </td>
                         <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" class="btn btn-info btn-just-icon btn-sm" data-original-title="" title="">
+                          <a  href="<%= lesson_path(lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">done_outline</i>
-                          </button>
+                          </a>
                           <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">edit</i>
                           </button>
-                          <button type="button" rel="tooltip" class="btn btn-danger btn-just-icon btn-sm" data-original-title="" title="">
-                            <i class="material-icons">close</i>
-                          </button>
+                           <a   <%= link_to "exit_to_app" , lesson_path(lesson.id) , data: { toggle: "tooltip", placement: "right", title: "Supprimer", confirm: "Es-tu sûr-e de vouloir supprimer ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
+                          </a>
                         </td>
                      
                     </tbody>

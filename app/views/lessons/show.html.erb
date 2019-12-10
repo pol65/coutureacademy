@@ -29,6 +29,10 @@
       <div class="section section-text">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
+<<<<<<< HEAD
+                <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"%><br/><br/>
+            <div class="trix-content"><%= raw(@lesson.content) %></div>
+=======
             <% if is_student_to_current_lesson(@lesson)  %>
               <a class="btn btn-primary btn-round" href="#" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inscrit.e</font></font></a>
               <div class="ripple-container"></div>
@@ -37,6 +41,7 @@
               <div class="ripple-container"></div>
                <% end %>
             <p><%= @lesson.content %></p>
+>>>>>>> development
           </div>
         </div>
       </div>
