@@ -83,7 +83,7 @@
                           <a  href="<%= lesson_path(classroom.lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">done_outline</i>
                           </a>
-                          <a <%= link_to "destroy", lesson_classroom_path(lesson_url , classroom.id), method: :delete %> >
+                          <a <%= link_to "Quitter" , lesson_classroom_path(lesson_url , classroom.id) , data: { confirm: "Es-tu sûr-e de vouloir quitter ce cours ?"} , method: :delete %>  
                             <i class="material-icons">close</i>
                           </a>
                         </td>
