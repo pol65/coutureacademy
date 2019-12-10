@@ -4,5 +4,5 @@ class UsersController < ApplicationController
     @classrooms = Classroom.where(:student_id => current_user.id)
     @taught_lessons = Lesson.where(:teacher_id => current_user.id)
     
-  end
+    end
 end

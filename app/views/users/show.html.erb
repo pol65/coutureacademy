@@ -20,11 +20,7 @@
         <div class="row">
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
-              <div class="avatar">3	23. Les bases en Couture	Broderie	couture-academy15@yopmail.com	￼done_outline ￼edit ￼close
-20	La broderie version 4	Couture	thp972@gmail.com	￼done_outline ￼edit ￼close
-21	La broderie version 5	Couture	thp972@gmail.com	￼done_outline ￼edit ￼close
-4	24. Les bases en Couture	Couture	couture-academy19@yopmail.com	￼done_outline ￼edit ￼close
-21	La broderie version 5	Couture	thp972@gmail.com	￼done_outline ￼edit ￼closei
+              <div class="avatar">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
@@ -79,27 +75,24 @@
                     <% @classrooms.each do |classroom|%>
                     <tbody>
                       
-                        <td class="text-center"><%= classroom.lesson.id %></td>
+                        <td class="text-center"><%= classroom.id %></td>
                         <td><%= classroom.lesson.title %></td>
                         <td> <%= classroom.lesson.category %> </td>
                         <td><%= classroom.lesson.teacher.email %>   </td>
                         <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" class="btn btn-info btn-just-icon btn-sm" data-original-title="" title="">
+                          <a  href="<%= lesson_path(classroom.lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">done_outline</i>
-                          </button>
-                          <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
-                            <i class="material-icons">edit</i>
-                          </button>
-                          <button type="button" rel="tooltip" class="btn btn-danger btn-just-icon btn-sm" data-original-title="" title="">
+                          </a>
+                          <a <%= link_to "destroy", lesson_classroom_path(lesson_url , classroom.id), method: :delete %> >
                             <i class="material-icons">close</i>
-                          </button>
+                          </a>
                         </td>
                     
                     </tbody>
                     <% end %>
                   </table>
                   
-      </div>
+      </div> 
                 
               </div>
             </div>
@@ -127,7 +120,7 @@
                         <td> <%= taught_lesson.category %> </td>
                         <td><%=Classroom.where(lesson_id: taught_lesson).count %>   </td>
                         <td class="td-actions text-right">
-                          <button type="button" rel="tooltip"  class="btn btn-info btn-just-icon btn-sm" data-original-title="" title=""  >
+                          <button type="button" rel="tooltip"   class="btn btn-info btn-just-icon btn-sm" data-original-title="" title=""  >
                             <i class="material-icons">done_outline</i>
                           </button>
                           <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
@@ -152,3 +145,4 @@
     </div>
   </div>
 </body>
+ 
