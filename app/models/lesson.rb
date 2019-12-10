@@ -5,7 +5,10 @@ class Lesson < ApplicationRecord
     
     belongs_to :teacher, class_name: "User"
 
+<<<<<<< HEAD
+=======
     has_many :comments
+>>>>>>> development
 
     validates :title, :content, :category,   presence: true 
     validates :title, uniqueness: true 

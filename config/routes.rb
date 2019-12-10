@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   namespace :admin do 
     root 'base#index'
-    resources :users , except: [:show]
+    resources :users 
     resources :lessons
   end
 
