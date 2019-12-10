@@ -18,11 +18,23 @@
         <div class="col-md-6 ml-auto mr-auto">
           <div class="profile">
             <div class="avatar">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-            </div>
+                <%if @user.avatar.attached?%>
+                  <%= image_tag @user.avatar, alt: 'avatar', class:"img-raised rounded-circle img-fluid"%>
+                  <%= form_tag user_avatars_path(@user), multipart: true do %>
+                    <%= file_field_tag :avatar %>
+                    <%= submit_tag "Changer la photo", class: "btn btn-rose btn-link btn-lg" %>
+                  <% end %>
+                <%else%>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                  <%= form_tag user_avatars_path(@user), multipart: true do %>
+                    <%= file_field_tag :avatar %>
+                    <%= submit_tag "Ajouter une photo", class: "btn btn-rose btn-link btn-lg" %>
+                  <% end %>
+                <%end%><br/><br/>
+              </div>
             <div class="name">
               <h3 class="title"><%= @user.username %></h3>
-              <h6>Derniére modification le <%= @user.updated_at.strftime("%m-%Y")%> </h6>
+              <h6>Dernière modification le <%= @user.updated_at.strftime("%m-%Y")%> </h6>
             </div>
             <div>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -49,11 +61,11 @@
               <div class="actions">
               <br>
                 <%= f.submit "Mise à jour", class: "btn btn-rose btn-link btn-lg" %>
-                <%= link_to "Retour", user_path(current_user), methode: :get, class: "btn btn-rose btn-link btn-lg" %>
+                <%= link_to "Retour", user_path(current_user), method: :get, class: "btn btn-rose btn-link btn-lg" %>
               </div>
             <% end %>
               <div>
-            <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sure de vouloir nous quitter ?" }, method: :delete, class: "btn btn-rose btn-round" %>
+            <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sure de vouloir nous quitter ?" }, method: :delete, class: "btn btn-danger btn-round" %>
               </div>
             </div>  
           </div>
