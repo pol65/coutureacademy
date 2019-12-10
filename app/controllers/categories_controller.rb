@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-    def show
+    def show    
         @lessons = Lesson.where(:category => params[:id]).all
     end
 end
