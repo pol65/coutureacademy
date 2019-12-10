@@ -74,3 +74,4 @@ gem 'devise'
 gem 'stripe'
 gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
+gem 'trix-rails', require: 'trix'

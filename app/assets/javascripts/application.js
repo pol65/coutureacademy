@@ -25,3 +25,4 @@
 //= require plugins/jquery.sharrre
 //= require plugins/nouislider.min
 //= require material-kit.min
+//= require trix

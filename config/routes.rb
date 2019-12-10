@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   
+  resources :users, only: [:show] do
+    resources :avatars, only: [:create]
+  end
+  
   resources :lessons do 
     resources :classrooms
   end
@@ -20,5 +24,15 @@ Rails.application.routes.draw do
   	resources :comments
   end
   
+  resources :lessons
+
+
+
+
+  namespace :admin do 
+    root 'base#index'
+    resources :users , except: [:show]
+    resources :lessons
+  end
 
 end
