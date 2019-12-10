@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   }
   resources :users
   
+  resources :users, only: [:show] do
+    resources :avatars, only: [:create]
+  end
+  
   resources :lessons do 
     resources :classrooms
   end

@@ -4,6 +4,8 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
             :recoverable, :rememberable, :validatable
     devise :omniauthable, omniauth_providers: [:facebook]
+            
+has_one_attached :avatar
 
 has_many  :classrooms
 has_many  :lessons, through: :classrooms
@@ -41,4 +43,6 @@ has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
+
+  
 end

@@ -37,7 +37,8 @@ lessons = []
         content: "Voici le contenu du cours #{Faker::Lorem.paragraphs(number: 10)}",
         price: Faker::Number.between(from: 25, to: 150),
         category: categories.sample,
-        teacher_id: users.sample.id
+        teacher_id: users.sample.id,
+        summary: "Voici le résumé du cours #{Faker::Lorem.paragraph}"
     )
 end
 
