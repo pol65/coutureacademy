@@ -120,9 +120,9 @@
                         <td> <%= taught_lesson.category %> </td>
                         <td><%=Classroom.where(lesson_id: taught_lesson).count %>   </td>
                         <td class="td-actions text-right">
-                          <button type="button" rel="tooltip"   class="btn btn-info btn-just-icon btn-sm" data-original-title="" title=""  >
+                          <a  href="<%= lesson_path(taught_lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">done_outline</i>
-                          </button>
+                          </a>
                           <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">edit</i>
                           </button>
