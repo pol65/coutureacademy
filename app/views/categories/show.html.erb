@@ -28,7 +28,11 @@
                         <div class="card-footer ">
                     <div class="author">
                       <a href="#pablo">
-                        <%= image_tag "avatar/void_avatar.png", class:"avatar img-raised" %>               
+                      <%if current_user.avatar.attached?%>
+                        <%= image_tag current_user.avatar, alt: 'avatar', class:"avatar img-raised" %>
+                      <%else%>
+                        <img src="avatar/void/avatar.png" alt="Circle Image" class="avatar img-raised">
+                      <%end%>             
                         <span>Proposé par <%= lesson.teacher.username %></span>
                       </a>
                     </div>
