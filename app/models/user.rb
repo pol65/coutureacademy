@@ -5,7 +5,7 @@ class User < ApplicationRecord
             :recoverable, :rememberable, :validatable
 
 
-has_many  :classrooms
+has_many  :classrooms, dependent: :destroy
 has_many  :lessons, through: :classrooms
 
 has_many :followed_lessons, foreign_key: "student_id", class_name: "Lesson"
