@@ -2,40 +2,40 @@
  =========================================================
  Material Kit PRO - v2.2.0
  =========================================================
-
  Product Page: https://themes.getbootstrap.com/product/material-kit-pro/
  Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
  Coded by Creative Tim
-
  =========================================================
-
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
 <body class="blog-post sidebar-collapse">
   <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://static.wixstatic.com/media/40da79353be1422480640cb59eb29b1f.jpg/v1/fill/w_2313,h_1301,al_c,q_85/40da79353be1422480640cb59eb29b1f.jpg');">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center">
           <h1 class="title"><%= @lesson.title %></h1>
-          <h4>Un cours proposé par <%= @lesson.teacher_id %></h4>
+          <h4>Un cours proposé par <%= @lesson.teacher.username %></h4>
           <br>
         </div>
       </div>
     </div>
   </div>
-  
   <div class="main main-raised">
     <div class="container">
       <div class="section section-text">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
-          
-          
+            <% if is_student_to_current_lesson(@lesson)  %>
+              <a class="btn btn-primary btn-round" href="#" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inscrit.e</font></font></a>
+              <div class="ripple-container"></div>
+              <% else %>
                 <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
               <div class="ripple-container"></div>
-          
+               <% end %>
             <p><%= @lesson.content %></p>
           </div>
         </div>
@@ -55,6 +55,7 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       <div class="section section-comments">
         <div class="row">        
@@ -63,6 +64,14 @@
             <div class="media-area">
               <h3 class="title text-center">Commentaires</h3>
               <% @comments.each do |comment| %>  
+=======
+      <div class="section section-comments">
+        <div class="row">        
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="media-area">
+              <h3 class="title text-center">Commentaires</h3>
+              <% @comments.each do |comment| %> 
+>>>>>>> development
                 <% if @lesson.id == comment.lesson_id %>
               <div class="media">  
                 <a class="float-left" href="#">
@@ -71,9 +80,14 @@
                   </div>
                 </a>
                 <% if @lesson.id == comment.lesson_id %>
+<<<<<<< HEAD
       
                 <div class="media-body">
                   <h4 class="media-heading"><%= current_user.username %><small>&#xB7; 7 minutes ago</small></h4>
+=======
+                <div class="media-body">
+                  <h4 class="media-heading"><%= @comment.user %><small>&#xB7; 7 minutes ago</small></h4>
+>>>>>>> development
                   <h6 class="text-muted"></h6>
                   <p><%= comment.content %></p>
                   <br>

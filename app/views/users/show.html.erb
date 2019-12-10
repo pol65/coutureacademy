@@ -21,7 +21,11 @@
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
               <div class="avatar">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                  <%if @user.avatar.attached?%>
+                    <%= image_tag @user.avatar, alt: 'avatar', class:"img-raised rounded-circle img-fluid" %>
+                  <%else%>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                  <%end%>
               </div>
               <div class="name">
                 <h3 class="title"><%= @user.username %></h3>
@@ -60,21 +64,73 @@
           <div class="tab-pane text-center gallery" id="subscribed">
             <div class="row">
               <div class="col ml-auto">
-              <% @classrooms.each do |classroom| %>
-              <p> <%= classroom.lesson.title %> </p>
-              
-                <% end %>
-                <p>Abonnement 1</p>
-                <p>Abonnement 2</p>
+              <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center">#</th>
+                        <th>Cours suivis</th>
+                        <th>Catégorie</th>
+                        <th>Professeur</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <% @classrooms.each do |classroom|%>
+                    <tbody>
+                        <td class="text-center"><%= classroom.id %></td>
+                        <td><%= classroom.lesson.title %></td>
+                        <td> <%= classroom.lesson.category %> </td>
+                        <td><%= classroom.lesson.teacher.email %>   </td>
+                        <td class="td-actions text-right">
+                          <a  href="<%= lesson_path(classroom.lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">done_outline</i>
+                          </a>
+                          <%= link_to "exit_to_app" , lesson_classroom_path(lesson_url , classroom.id) , data: { toggle: "tooltip", placement: "right", title: "Se désabonner", confirm: "Es-tu sûr-e de vouloir quitter ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
+                          </a>
+                        </td>
+                    </tbody>
+                    <% end %>
+                  </table>
+                </div>        
               </div>
             </div>
           </div>
           <div class="tab-pane text-center gallery" id="mycourses">
             <div class="row">
               <div class="col ml-auto">
-              <% @taught_lessons.each do |taught_lesson| %>
-                <p> <%= taught_lesson.title %> <p>
-              <% end %>
+              <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center">#</th>
+                        <th>Titre du cours</th>
+                        <th>Catégorie</th>
+                        <th>Nombre élève</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <% @taught_lessons.each do |taught_lesson| %>
+                    <tbody>
+                      
+                        <td class="text-center"><%= taught_lesson.id %></td>
+                        <td><%= taught_lesson.title %></td>
+                        <td> <%= taught_lesson.category %> </td>
+                        <td><%=Classroom.where(lesson_id: taught_lesson).count %>   </td>
+                        <td class="td-actions text-right">
+                          <a  href="<%= lesson_path(taught_lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">done_outline</i>
+                          </a>
+                          <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">edit</i>
+                          </button>
+                          </a>
+                            <%= link_to "close", lesson_path(taught_lesson.id), data: { toggle: "tooltip", placement: "right", title: "Supprimer le cours", confirm: "Es-tu sûr.e de vouloir supprimer ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
+                          </a>
+                        </td>
+                    </tbody>
+                    <% end %>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -83,3 +139,4 @@
     </div>
   </div>
 </body>
+ 
