@@ -48,12 +48,14 @@
               </div>
               <div class="actions">
               <br>
-                <%= f.submit "Mise à jour",class: "btn btn-rose btn-link btn-lg" %>
-                <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sure de vouloir nous quitter ?" }, method: :delete, class: "btn btn-rose btn-link btn-lg" %>
+                <%= f.submit "Mise à jour", class: "btn btn-rose btn-link btn-lg" %>
                 <%= link_to "Retour", user_path(current_user), methode: :get, class: "btn btn-rose btn-link btn-lg" %>
               </div>
             <% end %>
-            </div>
+              <div>
+            <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sure de vouloir nous quitter ?" }, method: :delete, class: "btn btn-rose btn-round" %>
+              </div>
+            </div>  
           </div>
         </div>
       </div>
