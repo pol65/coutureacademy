@@ -14,7 +14,7 @@
 -->
 <div class="page-header header-filter" style="background-image: url('http://eskipaper.com/images/background-images-1.jpg'); background-size: cover; background-position: top center;">
   <div class="container">
-    <%= link_to "Se connecter via Facebook", user_facebook_omniauth_authorize_path %>
+    
     <div class="row">
 
       <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
@@ -27,6 +27,12 @@
               <div class="card-body">
                 <div class="row">
                 </div>
+              </div>
+            </div>
+            <div id="social-buttons">
+              <div class="col-lg-1 col-md-2 col-6 social-buttons-demo">
+                
+                  <%= link_to "Se connecter via Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-social btn-fill btn-facebook fa fa-facebook-square"%> 
               </div>
             </div>
             <div class="card-body ">
