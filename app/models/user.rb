@@ -6,22 +6,33 @@ class User < ApplicationRecord
             
 has_one_attached :avatar
 
-has_many  :classrooms
+has_many  :classrooms, dependent: :destroy
 has_many  :lessons, through: :classrooms
 
 has_many :followed_lessons, foreign_key: "student_id", class_name: "Lesson"
 has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
 
-  def is_teacher? 
-    if @current_user.taught_lessons.count > 0
-    else
-    end
+
+validates :username, presence: true
+validates :username, uniqueness: true
+validates :description, length: {minimum: 100}
+
+
+
+
+
+
+def is_teacher? 
+  if @current_user.taught_lessons.count > 0
+  else
   end
+end
   
   after_create :welcome_send
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
+
 end

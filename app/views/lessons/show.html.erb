@@ -16,8 +16,18 @@
       <div class="section section-text">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
+<<<<<<< HEAD
+          
+          
+                <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
+              <div class="ripple-container"></div>
+
+          
+            <p><%= @lesson.content %></p>
+=======
                 <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"%><br/><br/>
             <div class="trix-content"><%= raw(@lesson.content) %></div>
+>>>>>>> development
           </div>
         </div>
       </div>

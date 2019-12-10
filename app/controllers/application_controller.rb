@@ -10,4 +10,13 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
       devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     end
+  
+    def is_admin?
+        if current_user.admin?
+        else
+            redirect_to root_path
+            flash[:danger] = "Not an admin"
+        end
+    end
+  
 end
