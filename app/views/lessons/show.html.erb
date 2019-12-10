@@ -25,7 +25,7 @@
       <div class="section section-text">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
-            <% if @classroom.student_id == current_user.id? %>
+            <% if @lesson.student_ids == current_user.id%>
               <%= link_to "Inscris" , class:"btn btn-primary btn-round" %>
               <div class="ripple-container"></div>
               <% else %>
