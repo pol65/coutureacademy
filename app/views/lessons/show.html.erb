@@ -67,7 +67,7 @@
                 <% if @lesson.id == comment.lesson_id %>
       
                 <div class="media-body">
-                  <h4 class="media-heading"><%= @comment.user %><small>&#xB7; 7 minutes ago</small></h4>
+                  <h4 class="media-heading"><%= current_user.username %><small>&#xB7; 7 minutes ago</small></h4>
                   <h6 class="text-muted"></h6>
                   <p><%= comment.content %></p>
                   <br>
@@ -82,42 +82,28 @@
                 <% end %>
               <% end %>
 
-              
-            </div>
-          </div>
+              <h3 class="text-center">Laissez votre commentaire <br></h3>
 
-        </div>
-      
-        <!-- liens boutons pour supprimer et editer et pointent vers la route du commentaire specifique du gossip specifique pour lui appliquer la methode#edit dans le controller comments et la methode destroy-->
-            
-
-            <!--Le formulaire va POINTER vers la methode #create dans le controller comments Jamy, nous dit c'est pas super intuitif, mais PAR CONVENTION le POST de création va à /comments et non pas /comments/new -->
-         
-        <h3 class="text-center">Laissez votre commentaire <br></h3>
-         
-        <div class="media media-post">
-          <a class="author float-left" href="#">
-            <div class="avatar">
-                <img class="media-object" alt="64x64" src="./assets/img/faces/avatar.jpg">
-            </div>
-          </a>
-          <div class="media-body">
-            <div class="media-body">
-                <%= form_with model: @comment, url: [@lesson, @comment], local: true, class: "form" do |form| %>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group bmd-form-group">
-                      <%= form.text_field :content, class: "form-control", placeholder: "Contenu du commentaire" %>                     
-                  </div>          
-                </div>
-                <div class="media-footer">
-                    <%= form.submit class: "btn btn-primary btn-wd float-right", value: "Poster le commentaire" %>
-                </div>
+              <div class="media media-post">
+                <a class="author float-left" href="#">
+                  <div class="avatar">
+                      <img class="media-object" alt="64x64" src="./assets/img/faces/avatar.jpg">
+                  </div>
+                </a>
+                <div class="media-body">
+                    <%= form_with model: @comment, url: [@lesson, @comment], local: true, class: "form" do |form| %>
+                  <div class="form-group label-floating bmd-form-group">
+                    <%= form.text_field :content, class: "form-control", placeholder: "Contenu du commentaire" %>           
+                  </div>
+                  <div class="media-footer">
+                    <%= form.submit class: "btn btn-primary btn-round btn-wd float-right", value: "Poster le commentaire" %>
+                  </div>
                     <% end %>
-              </div>
-            </div> 
-            
+                </div>
+              </div>       
+            </div>
           </div>
+
         </div>
       </div>
     </div>
