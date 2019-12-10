@@ -13,8 +13,8 @@ class LessonsController < ApplicationController
     @classrooms = Classroom.all
     @user = User.find(params[:id])
     @classroom = Classroom.find(params[:id])
-    3.times { puts @lesson.student_ids}
-    3.times { puts current_user.id}
+    @students = [Lesson.find(params[:id]).students]
+    
   end
 
   def new

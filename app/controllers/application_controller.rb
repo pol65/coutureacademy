@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
+  
 
     before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -11,3 +12,4 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     end
 end
+  include LessonsHelper
