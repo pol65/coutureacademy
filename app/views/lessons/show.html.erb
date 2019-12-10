@@ -8,6 +8,10 @@
  =========================================================
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+<<<<<<< HEAD
+
+=======
+>>>>>>> development
 <body class="blog-post sidebar-collapse">
   <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://static.wixstatic.com/media/40da79353be1422480640cb59eb29b1f.jpg/v1/fill/w_2313,h_1301,al_c,q_85/40da79353be1422480640cb59eb29b1f.jpg');">
     <div class="container">
@@ -51,12 +55,23 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+
+      <div class="section section-comments">
+        <div class="row">        
+          <div class="col-md-8 ml-auto mr-auto">
+
+            <div class="media-area">
+              <h3 class="title text-center">Commentaires</h3>
+              <% @comments.each do |comment| %>  
+=======
       <div class="section section-comments">
         <div class="row">        
           <div class="col-md-8 ml-auto mr-auto">
             <div class="media-area">
               <h3 class="title text-center">Commentaires</h3>
               <% @comments.each do |comment| %> 
+>>>>>>> development
                 <% if @lesson.id == comment.lesson_id %>
               <div class="media">  
                 <a class="float-left" href="#">
@@ -65,8 +80,14 @@
                   </div>
                 </a>
                 <% if @lesson.id == comment.lesson_id %>
+<<<<<<< HEAD
+      
+                <div class="media-body">
+                  <h4 class="media-heading"><%= current_user.username %><small>&#xB7; 7 minutes ago</small></h4>
+=======
                 <div class="media-body">
                   <h4 class="media-heading"><%= @comment.user %><small>&#xB7; 7 minutes ago</small></h4>
+>>>>>>> development
                   <h6 class="text-muted"></h6>
                   <p><%= comment.content %></p>
                   <br>
@@ -79,33 +100,29 @@
                   <% end %>
                 <% end %>
               <% end %>
-            </div>
-          </div>
-        </div>
- 
-        <h3 class="text-center">Laissez votre commentaire <br></h3>
-        <div class="media media-post">
-          <a class="author float-left" href="#">
-            <div class="avatar">
-                <img class="media-object" alt="64x64" src="./assets/img/faces/avatar.jpg">
-            </div>
-          </a>
-          <div class="media-body">
-            <div class="media-body">
-                <%= form_with model: @comment, url: [@lesson, @comment], local: true, class: "form" do |form| %>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group bmd-form-group">
-                      <%= form.text_field :content, class: "form-control", placeholder: "Contenu du commentaire" %>                     
-                  </div>          
-                </div>
-                <div class="media-footer">
-                    <%= form.submit class: "btn btn-primary btn-wd float-right", value: "Poster le commentaire" %>
-                </div>
+
+              <h3 class="text-center">Laissez votre commentaire <br></h3>
+
+              <div class="media media-post">
+                <a class="author float-left" href="#">
+                  <div class="avatar">
+                      <img class="media-object" alt="64x64" src="./assets/img/faces/avatar.jpg">
+                  </div>
+                </a>
+                <div class="media-body">
+                    <%= form_with model: @comment, url: [@lesson, @comment], local: true, class: "form" do |form| %>
+                  <div class="form-group label-floating bmd-form-group">
+                    <%= form.text_field :content, class: "form-control", placeholder: "Contenu du commentaire" %>           
+                  </div>
+                  <div class="media-footer">
+                    <%= form.submit class: "btn btn-primary btn-round btn-wd float-right", value: "Poster le commentaire" %>
+                  </div>
                     <% end %>
-              </div>
-            </div> 
+                </div>
+              </div>       
+            </div>
           </div>
+
         </div>
       </div>
     </div>
