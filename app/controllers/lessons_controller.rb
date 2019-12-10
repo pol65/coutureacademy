@@ -28,11 +28,8 @@ class LessonsController < ApplicationController
     if @lesson.save 
       flash[:success] = "Votre cours est en ligne !"
       redirect_to root_path
-     else
+    else
       render "new"
     end
   end
-  
-
 end
-
