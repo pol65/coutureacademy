@@ -77,8 +77,7 @@
                   <h6 class="text-muted"></h6>
                   <p><%= comment.content %></p>
                   <br>
-                    <% if session[:user_id]%> <!-- si le hash est bien existant dans le navigateur  -->
-                    <!--Conditions pour supprimer ou editer un commentaire, etre l auteur du gossip ou du commentaire -->
+                    <% if session[:user_id]%> 
                       <% if current_user.id == @lesson.user_id || current_user.id == comment.user_id%>
                       <%end%>
                     <%end%>
