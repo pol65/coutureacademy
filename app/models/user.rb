@@ -19,13 +19,13 @@ has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
       user.email = auth.info.email
       user.username = auth.info.name 
       user.password = Devise.friendly_token[0, 20]
-      user.skip_confirmation!
+      #user.skip_confirmation!
     end
   end
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
+    if email = conditions.delete(:email)
       where(conditions.to_hash).where("lower(username) = :value", value: login.downcase).first
     else
       where(conditions.to_hash).first
@@ -44,5 +44,5 @@ has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
     UserMailer.welcome_email(self).deliver_now
   end
 
-  
+
 end
