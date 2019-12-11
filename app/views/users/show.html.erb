@@ -29,7 +29,13 @@
               </div>
               <div class="name">
                 <h3 class="title"><%= @user.username %></h3>
-                <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6>           
+                <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6> 
+                <% if current_user.admin? %>
+                <a href="<%= admin_root_path %>" class="btn btn-rose btn-round">
+                            <i class="material-icons">subject</i> Administrator
+                          </a>   
+                <% else %>
+                <%end %>
               </div>
             </div>
           </div>
