@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :show]
-  before_action :is_free?, only: [:show]
+  before_action :is_accessible?, only: [:show]
 
 
   def index
@@ -71,12 +71,15 @@ class LessonsController < ApplicationController
 
   private
 
-  def is_free?
+  def is_accessible?
     @lesson = Lesson.find(params[:id])
-    if @lesson.price == 0 || @lesson.price == nil
+    paid_lesson = @lesson.classrooms.map {|c| c.student}.include?(current_user)
+    if @lesson.price == 0 || @lesson.price == nil || paid_lesson 
     else
       redirect_to  new_lesson_charge_path(@lesson.id)
+    end
   end
-end
+
+  
 
 end

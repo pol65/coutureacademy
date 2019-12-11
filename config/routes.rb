@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   end
   
   resources :lessons do 
-    resources :classrooms
     resources :charges
+    resources :classrooms
+    
   end
   resources :categories, only: [:show]
   
