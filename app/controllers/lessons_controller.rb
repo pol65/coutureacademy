@@ -16,7 +16,6 @@ class LessonsController < ApplicationController
     @user = User.find(params[:id])
     @classroom = Classroom.find(params[:id])
     @students = [Lesson.find(params[:id]).students]
-    
   end
   
   def new

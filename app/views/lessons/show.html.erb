@@ -36,7 +36,7 @@
                 <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
               <div class="ripple-container"></div>
                <% end %>
-            <p><%= @lesson.content %></p>
+            <p><%= raw(@lesson.content) %></p>
           </div>
         </div>
       </div>
