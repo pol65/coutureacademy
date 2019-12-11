@@ -10,8 +10,6 @@ class Lesson < ApplicationRecord
     validates :title, :content, :category,   presence: true 
     validates :title, uniqueness: true 
     validates :title , length: { in: 6..50 }
-   # validates :summary; legnht: { in: 150..250}
     validates :content, length: {minimum: 50 }
-   # validates :price, :numericality => { :greater_than_or_equal_to => 0.0 }
 
 end

@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :show]
+  before_action :is_free?, only: [:show]
 
 
   def index
@@ -39,7 +40,6 @@ class LessonsController < ApplicationController
   end
 
 
-
   def destroy
     @lesson = Lesson.find(params[:id])
     Lesson.destroy(@lesson.id)
@@ -67,6 +67,16 @@ class LessonsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+
+  def is_free?
+    @lesson = Lesson.find(params[:id])
+    if @lesson.price == 0 || @lesson.price == nil
+    else
+      redirect_to  new_charge_path
+  end
 end
-  
+
 end
