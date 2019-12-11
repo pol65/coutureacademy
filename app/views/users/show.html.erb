@@ -29,13 +29,7 @@
               </div>
               <div class="name">
                 <h3 class="title"><%= @user.username %></h3>
-                <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6> 
-                <% if current_user.admin? %>
-                <a href="<%= admin_root_path %>" class="btn btn-rose btn-round">
-                            <i class="material-icons">subject</i> Administrator
-                          </a> 
-                <%else %>
-                <% end %>
+                <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6>           
               </div>
             </div>
           </div>
@@ -91,7 +85,7 @@
                           <a  href="<%= lesson_path(classroom.lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">done_outline</i>
                           </a>
-                          <a  <%= link_to "exit_to_app" , lesson_classroom_path(classroom.lesson.id , classroom.id) , data: { toggle: "tooltip", placement: "right", title: "Se désabonner", confirm: "Es-tu sûr-e de vouloir quitter ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
+                          <a  <%= link_to "exit_to_app" , lesson_classroom_path(lesson_url , classroom.id) , data: { toggle: "tooltip", placement: "right", title: "Se désabonner", confirm: "Es-tu sûr-e de vouloir quitter ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
                           </a>
                         </td>
                     </tbody>
