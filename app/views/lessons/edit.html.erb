@@ -1,0 +1,64 @@
+<body class="product-page sidebar-collapse">
+  <div class="page-header header-filter" data-parallax="true" filter-color="rose" style="background-image: url(/assets/background/back_new_lesson.jpg);">
+  </div>
+
+  <div class="section">
+    <div class="container">
+        <div class="main main-raised main-product">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <h2 class="title">J'édite mon cours</h2>
+                    <h5 class="description">Vous pouvez ici modifier votre propre cours. Chaque modification est soumise à l'approbation de l'équipe de Couture Academy.</h5>
+                    <br/>
+                    
+                <div class="media media-post">
+                  <div class="media-body">
+                    <%= form_with model: @lesson, local: true, class: "form" do |form| %>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                          <%= form.text_field :title, class: "form-control", placeholder: "Titre du cours" %>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                      <p>Choisissez une catégorie</p>
+                        <div class="form-group bmd-form-group">
+                          <%= form.select :category,['Choisissez une catégorie', 'Les bases', 'Couture', 'Broderie', 'Modélisme'], disabled: 'Choisissez une catégorie' %>
+                        </div>
+                      </div>
+                    </div>
+                      <span class="bmd-form-group">
+                      <%= form.text_area :summary, class: "form-control", placeholder: "Résumé du cours : Allez à l'essentiel et donnez envie aux futurs élèves de s'abonner - 250 caractères maximum" %>
+                      </span><br/>
+                      <span class="bmd-form-group">
+                      <h6>Contenu du cours</h6>
+                      <%= form.trix_editor :content, autofocus: true%>
+                      </span><br/>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="form-group bmd-form-group">
+                          <div class="input-group">
+                            <%= form.number_field :price, step: :any, class: "form-control", placeholder: "Prix (0 pour rendre le cours gratuit)" %>
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                <i class="material-icons">euro</i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div><br/>
+                      <div class="media-footer" align="center">
+                        <%= form.submit class: "btn btn-success btn-round", value: "Poster le cours" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>

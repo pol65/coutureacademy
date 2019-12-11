@@ -43,23 +43,36 @@
       <li class="nav-item">
         <a href="/static_pages/about" class="nav-link"> A propos </a>
       </li>
+        <% if user_signed_in? %>
       <li class="dropdown nav-item">
         <a href="#" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
           <div class="profile-photo-small">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Circle Image" class="rounded-circle img-fluid">
+            <%if current_user.avatar.attached?%>
+              <%= image_tag current_user.avatar, alt: 'avatar', class:"img-raised rounded-circle img-fluid" %>
+            <%else%>
+              <%= image_tag "avatar/void_avatar.jpg", alt: 'avatar', class:"img-raised rounded-circle img-fluid" %>
+            <%end%>    
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-          <% if user_signed_in? %>
               <%= link_to "Mon profil", user_path(current_user), class:"dropdown-item" %>
               <%= link_to "Editer mon profil", edit_user_registration_path(current_user), methode: :get, class:"dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
-          <% else %>
-              <%= link_to "Se connecter", new_user_session_path, class:"dropdown-item" %>
-              <%= link_to "Créer un compte", new_user_registration_path, class:"dropdown-item" %>
-           <% end %>
         </div>
       </li>
+        <% else %>
+      <li class="dropdown nav-item">
+        <a href="#" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+          <div class="profile-photo-small">
+            <%= image_tag "avatar/void_avatar.jpg", alt: 'avatar', class:"img-raised rounded-circle img-fluid" %>
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+              <%= link_to "Se connecter", new_user_session_path, class:"dropdown-item" %>
+              <%= link_to "Créer un compte", new_user_registration_path, class:"dropdown-item" %>
+        </div>
+      </li>
+      <% end %>
     </ul>
   </div>
 </div>

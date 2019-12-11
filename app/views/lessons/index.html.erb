@@ -1,4 +1,4 @@
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://www.dempseycenter.org/wp-content/uploads/2016/07/sewing-e1471225803718.jpg')">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url(/assets/background/back_index_lesson.jpg);">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
@@ -17,7 +17,7 @@
             </div>
               <div class="row">
                <div class="col-md-3">
-                <div class="card card-background" style="background-image: url('https://s3-ap-southeast-2.amazonaws.com/assets.whatson.cityofsydney.nsw.gov.au/2018/03/Make-do-mend-Medium3-700x530.jpg')">
+                <div class="card card-background" style="background-image: url(/assets/card/card_base.jpg);">
                   <div class="card-body">
                     <h3 class="card-title">Les bases</h3><br/><br/><br/><br/>
                     <a href="/categories/Les%20bases" class="btn btn-danger btn-round">
@@ -27,7 +27,7 @@
                 </div>
               </div>
               <div class="col-md-3">
-                <div class="card card-background" style="background-image: url('https://cache.marieclaire.fr/data/photo/w1000_ci/4y/apprendre-la-broderie.jpg')">
+                <div class="card card-background" style="background-image: url(/assets/card/card_embroidery.jpg);">
                   <div class="card-body">
                     <h3 class="card-title">Broderie</h3><br/><br/><br/><br/>
                     <a href="/categories/Broderie" class="btn btn-danger btn-round">
@@ -37,7 +37,7 @@
                 </div>
               </div>
               <div class="col-md-3">
-                <div class="card card-background" style="background-image: url('https://image.jimcdn.com/app/cms/image/transf/dimension=890x10000:format=jpg/path/s7c758d02bc31c4e6/image/i01206ab4b786905f/version/1531925745/image.jpg')">
+                <div class="card card-background" style="background-image: url(/assets/card/card_sew.jpg);">
                   <div class="card-body">
                     <h3 class="card-title">Couture</h3><br/><br/><br/><br/>
                     <a href="/categories/Couture" class="btn btn-danger btn-round">
@@ -47,7 +47,7 @@
                 </div>
               </div>
               <div class="col-md-3">
-                <div class="card card-background" style="background-image: url('https://media.istockphoto.com/vectors/sewing-utilities-beige-wallpaper-seamless-pattern-retro-design-vector-id673876196')">
+                <div class="card card-background" style="background-image: url(/assets/card/card_model.jpg);">
                   <div class="card-body">
                     <h3 class="card-title">Modélisme</h3><br/><br/><br/><br/>
                     <a href="/categories/Modélisme" class="btn btn-danger btn-round">
@@ -66,7 +66,7 @@
               <div class="col-md-6 col-lg-4">
                 <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
                   <div class="card card-rotate">
-                    <div class="front front-background" style="background-image: url(&quot;https://vertcerise.com/blog/wp-content/uploads/2019/02/hoop-art-chat.jpg&quot;); width: 289.984px;">
+                    <div class="front front-background" style="background-image: url(/assets/card/card_lesson.jpg);">
                       <div class="card-body">
                         <h5 class="card-category card-category-social text-success">
                           <%= lesson.category %>
@@ -75,7 +75,7 @@
                           <%= lesson.title%>
                         </h4>
                         <p class="card-description">
-                          <div class="trix-content"><%= raw(lesson.content).truncate_words(25) %></div>
+                          <div><%= lesson.summary %></div>
                         </p>
                         <div class="card-footer ">
                   </div>
@@ -93,17 +93,13 @@
                           Lancez vous !
                         </h5>
                         <p class="card-description">
-                          Vous avez toujours voulu vous laisser dans la broderie, mais vous ne savez pas comment vous y prendre ? C'est parfait, ce cours est fait pour vous ! 
-                        </p>
+                          <%= lesson.summary %></p><br/>
                         <div class="author">
                           <h6>Proposé par <%= lesson.teacher.username %></h6>
                         </div><br/>
-                        <div class="stats">
-                          <i class="material-icons">schedule</i> Durée : 5h
-                        </div><br/>
                         <div class="stats text-center">
                           <a href="<%= lesson_path(lesson.id)%>" class="btn btn-rose btn-round">
-                            <i class="material-icons">subject</i> S'inscrire
+                            <i class="material-icons">subject</i> Consulter
                           </a>
                         </div>
                         <br>

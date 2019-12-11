@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
+  include LessonHelper
+  
 
-    before_action :configure_permitted_parameters, if: :devise_controller?
-
+    before_action :configure_permitted_parameters, if: :devise_controller? 
     protected
   
     def configure_permitted_parameters
@@ -10,4 +11,13 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
       devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     end
+  
+    def is_admin?
+        if current_user.admin?
+        else
+            redirect_to root_path
+            flash[:danger] = "Not an admin"
+        end
+    end
+  
 end

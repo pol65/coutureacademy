@@ -1,7 +1,5 @@
 <body class="product-page sidebar-collapse">
-  <div class="page-header header-filter" data-parallax="true" filter-color="rose" style="background-image: url('https://cache.marieclaire.fr/data/photo/w1000_ci/4w/cours-de-couture.jpg');">
-  </div>
-
+  <div class="page-header header-filter" data-parallax="true" filter-color="rose" style="background-image: url(/assets/background/back_new_lesson.jpg);"></div>
   <div class="section">
     <div class="container">
         <div class="main main-raised main-product">
@@ -29,9 +27,12 @@
                       </div>
                     </div>
                       <span class="bmd-form-group">
+                      <%= form.text_area :summary, class: "form-control", placeholder: "Résumé du cours : Allez à l'essentiel et donnez envie aux futurs élèves de s'abonner - 250 caractères maximum" %>
+                      </span><br/>
+                      <span class="bmd-form-group">
+                      <h6>Contenu du cours</h6>
                       <%= form.trix_editor :content, autofocus: true%>
                       </span><br/>
-
                     <div class="row">
                       <div class="col-md-8">
                         <div class="form-group bmd-form-group">
@@ -46,8 +47,6 @@
                         </div>
                       </div>
                       </div><br/>
-
-
                       <div class="media-footer" align="center">
                         <%= form.submit class: "btn btn-success btn-round", value: "Poster le cours" %>
                       </div>

@@ -1,6 +1,7 @@
 class ClassroomsController < ApplicationController
-
+    before_action :authenticate_user!, only: [:create]
 def index
+    
 end
 
 def create
@@ -16,9 +17,23 @@ def create
     end
 end
 
-
-
-
+def destroy 
+    @classroom = Classroom.find(params[:id])
+    @classroom.destroy
+    if @classroom.destroy 
+      flash[:warning] = "Vous n'êtes plus inscrit à ce cours !"
+      redirect_to root_path
+    else
+      render "new"
+    end
+end
 
 
 end
+
+
+
+
+
+
+
