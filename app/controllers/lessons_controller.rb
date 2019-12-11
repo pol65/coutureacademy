@@ -55,9 +55,6 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
   end
 
-<<<<<<< HEAD
-
-=======
   def update
     @lesson = Lesson.find(params[:id])
     if @lesson.update(
@@ -71,6 +68,5 @@ class LessonsController < ApplicationController
       render :edit
     end
 end
->>>>>>> 0e90a402d810442d0647ab34b82f57d12a3f7c2f
   
 end
