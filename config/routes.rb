@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   end
   
   resources :lessons do 
+    resources :charges
     resources :classrooms
+    
   end
   resources :categories, only: [:show]
- 
-  resources :charges
   
   get 'static_pages/contact'
   get 'static_pages/about'
