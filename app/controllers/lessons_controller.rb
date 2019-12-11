@@ -51,6 +51,22 @@ class LessonsController < ApplicationController
     end
   end
 
+  def edit
+    @lesson = Lesson.find(params[:id])
+  end
 
+  def update
+    @lesson = Lesson.find(params[:id])
+    if @lesson.update(
+      title: params[:lesson][:title], 
+      content: params[:lesson][:content],
+      category: params[:lesson][:category],
+      price: params[:lesson][:price],
+      summary: params[:lesson][:summary])
+      redirect_to @lesson
+    else
+      render :edit
+    end
+end
   
 end
