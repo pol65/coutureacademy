@@ -18,5 +18,5 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   require 'omniauth-google-oauth2'
-  config.omniauth :google_oauth2, '494128974674-3ubg7v4rme8fd8c719mm47icm099itl9.apps.googleusercontent.com', 'eK7NQVndbosbKpFkkY2UhZ2h', {acces_type: "offline", approval_prompt: ""}
+  config.omniauth :google_oauth2, ENV['GOOGLE_LOGIN'], ENV['GOOGLE_PWD'], {acces_type: "offline", approval_prompt: ""}
 end
