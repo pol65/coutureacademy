@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :show]
+  before_action :is_accessible?, only: [:show]
 
 
   def index
@@ -39,7 +40,6 @@ class LessonsController < ApplicationController
   end
 
 
-
   def destroy
     @lesson = Lesson.find(params[:id])
     Lesson.destroy(@lesson.id)
@@ -67,6 +67,18 @@ class LessonsController < ApplicationController
     else
       render :edit
     end
-end
-  
+  end
+
+  private
+
+  def is_accessible?
+    @lesson = Lesson.find(params[:id])
+    paid_lesson = @lesson.classrooms.map {|c| c.student}.include?(current_user)
+    if @lesson.price == 0 || @lesson.price == nil || paid_lesson
+    elsif @lesson.teacher.id == current_user.id
+    elsif current_user.admin == true
+    else
+      redirect_to  new_lesson_charge_path(@lesson.id)
+    end
+  end
 end
