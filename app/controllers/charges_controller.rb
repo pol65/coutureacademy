@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
     def new
+      @lesson = Lesson.find(params[:lesson_id])
       @amount = Lesson.find(params[:lesson_id]).price * 100
     end
     
