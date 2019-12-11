@@ -51,6 +51,11 @@ class LessonsController < ApplicationController
     end
   end
 
+  def lesson_is_free?
+    if @lesson.price >= 1
+
+    end
+  end
 
   
 end
