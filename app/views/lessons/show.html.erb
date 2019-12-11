@@ -9,7 +9,7 @@
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 <body class="blog-post sidebar-collapse">
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://static.wixstatic.com/media/40da79353be1422480640cb59eb29b1f.jpg/v1/fill/w_2313,h_1301,al_c,q_85/40da79353be1422480640cb59eb29b1f.jpg');">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url(/assets/background/back_show_lesson);">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center">
@@ -31,7 +31,7 @@
               <% else %>
                 <%= link_to "S'inscrire", lesson_classrooms_path(@lesson.id), method: :post, class:"btn btn-primary btn-round"   %>
               <div class="ripple-container"></div>
-               <% end %>
+              <% end %>
             <p><%= raw(@lesson.content) %></p>
           </div>
         </div>
@@ -61,12 +61,16 @@
               <div class="media">  
                 <a class="float-left" href="#">
                   <div class="avatar">
-                    <img class="media-object" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="...">
+                  <%if comment.user.avatar.attached?%>
+                    <%= image_tag comment.user.avatar, alt: 'avatar', class:"avatar img-raised" %>
+                  <%else%>
+                    <%= image_tag "avatar/void_avatar.jpg", alt: 'avatar', class:"avatar img-raised" %>
+                  <%end%>    
                   </div>
                 </a>
                 <% if @lesson.id == comment.lesson_id %>      
                 <div class="media-body">
-                  <h4 class="media-heading"><%= current_user.username %><small>&#xB7; 7 minutes ago</small></h4>
+                  <h4 class="media-heading"><%= comment.user.username %><small>  Posté le <%= comment.created_at.strftime("%d/%m/%Y")%> à <%= comment.created_at.strftime("%H:%M:%S")%></small></h4>
                   <h6 class="text-muted"></h6>
                   <p><%= comment.content %></p>
                   <br>
@@ -85,7 +89,13 @@
               <div class="media media-post">
                 <a class="author float-left" href="#">
                   <div class="avatar">
-                      <img class="media-object" alt="64x64" src="./assets/img/faces/avatar.jpg">
+                      <%if current_user.avatar.attached?%>
+                        <%= image_tag current_user.avatar, alt: 'avatar', class:"avatar img-raised" %>
+                      <%else%>
+                      <%= image_tag "avatar/void_avatar.jpg", alt: 'avatar', class:"avatar img-raised" %>
+
+                      <%end%>    
+                      
                   </div>
                 </a>
                 <div class="media-body">
