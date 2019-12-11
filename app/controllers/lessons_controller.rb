@@ -75,7 +75,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
     if @lesson.price == 0 || @lesson.price == nil
     else
-      redirect_to  new_charge_path
+      redirect_to  new_lesson_charge_path(@lesson.id)
   end
 end
 

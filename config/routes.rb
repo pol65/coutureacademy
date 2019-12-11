@@ -9,10 +9,9 @@ Rails.application.routes.draw do
   
   resources :lessons do 
     resources :classrooms
+    resources :charges
   end
   resources :categories, only: [:show]
- 
-  resources :charges
   
   get 'static_pages/contact'
   get 'static_pages/about'
