@@ -5,6 +5,7 @@ class Lesson < ApplicationRecord
     
     belongs_to :teacher, class_name: "User"
 
+    has_many :comments
 
     validates :title, :content, :category,   presence: true 
     validates :title, uniqueness: true 

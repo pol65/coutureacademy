@@ -85,7 +85,7 @@
                           <a  href="<%= lesson_path(classroom.lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">done_outline</i>
                           </a>
-                          <%= link_to "exit_to_app" , lesson_classroom_path(lesson_url , classroom.id) , data: { toggle: "tooltip", placement: "right", title: "Se désabonner", confirm: "Es-tu sûr-e de vouloir quitter ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
+                          <a  <%= link_to "exit_to_app" , lesson_classroom_path(lesson_url , classroom.id) , data: { toggle: "tooltip", placement: "right", title: "Se désabonner", confirm: "Es-tu sûr-e de vouloir quitter ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
                           </a>
                         </td>
                     </tbody>
@@ -120,11 +120,11 @@
                           <a  href="<%= lesson_path(taught_lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">done_outline</i>
                           </a>
-                          <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
-                            <i class="material-icons">edit</i>
-                          </button>
+
+                          <a  <%= link_to "edit", edit_lesson_path(taught_lesson.id), data: { toggle: "tooltip", placement: "right", title: "Éditer le cours"}, class:"material-icons btn btn-info btn-sm" %>
                           </a>
-                            <%= link_to "close", lesson_path(taught_lesson.id), data: { toggle: "tooltip", placement: "right", title: "Supprimer le cours", confirm: "Es-tu sûr.e de vouloir supprimer ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
+
+                          <a  <%= link_to "close", lesson_path(taught_lesson.id), data: { toggle: "tooltip", placement: "right", title: "Supprimer le cours", confirm: "Es-tu sûr.e de vouloir supprimer ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
                           </a>
                         </td>
                     </tbody>

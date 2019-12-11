@@ -9,7 +9,13 @@ class LessonsController < ApplicationController
   end
  
   def show
-   @lesson = Lesson.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.all
+    @lesson = Lesson.find(params[:id])
+    @classrooms = Classroom.all
+    @user = User.find(params[:id])
+    @classroom = Classroom.find(params[:id])
+    @students = [Lesson.find(params[:id]).students]
   end
   
   def new
@@ -22,6 +28,7 @@ class LessonsController < ApplicationController
       content: params[:lesson][:content],
       category: params[:lesson][:category],
       price: params[:lesson][:price],
+      summary: params[:lesson][:summary],
       teacher: current_user)
     if @lesson.save 
       flash[:success] = "Votre cours est en ligne !"
@@ -44,6 +51,22 @@ class LessonsController < ApplicationController
     end
   end
 
+  def edit
+    @lesson = Lesson.find(params[:id])
+  end
 
+  def update
+    @lesson = Lesson.find(params[:id])
+    if @lesson.update(
+      title: params[:lesson][:title], 
+      content: params[:lesson][:content],
+      category: params[:lesson][:category],
+      price: params[:lesson][:price],
+      summary: params[:lesson][:summary])
+      redirect_to @lesson
+    else
+      render :edit
+    end
+end
   
 end

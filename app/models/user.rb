@@ -13,6 +13,8 @@ has_many  :lessons, through: :classrooms
 has_many :followed_lessons, foreign_key: "student_id", class_name: "Lesson"
 has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
+has_many :comments
+
 
   def self.from_facebook(auth)
     where(facebook_id: auth.uid).first_or_create do |user|
@@ -36,7 +38,7 @@ has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
 validates :username, presence: true
 validates :username, uniqueness: true
-validates :description, length: {minimum: 100}
+#validates :description, length: {minimum: 100}
 
 
 

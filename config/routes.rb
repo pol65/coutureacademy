@@ -20,6 +20,12 @@ Rails.application.routes.draw do
   get 'static_pages/faq'
   get 'static_pages/legal_notice'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+  resources :lessons do 
+  	resources :comments
+  end
+  
   resources :lessons
 
 
@@ -27,7 +33,7 @@ Rails.application.routes.draw do
 
   namespace :admin do 
     root 'base#index'
-    resources :users , except: [:show]
+    resources :users 
     resources :lessons
   end
 
