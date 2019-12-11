@@ -66,6 +66,7 @@
                         <th>Email</th>
                         <th>Titre</th>
                         <th>Catégorie</th>
+                        <th> En ligne  </th>
                         <th class="text-right">Prix</th>
                         <th class="text-right">Actions</th>
                       </tr>
@@ -77,14 +78,14 @@
                         <td><%= lesson.teacher.email %></td>
                         <td><%= lesson.title %></td>
                         <td><%= lesson.category %></td>
+                        <td><%= lesson.checked %></td>
                         <td class="text-right"><%= lesson.price %> € </td>
                         <td class="td-actions text-right">
-                          <a  href="<%= lesson_path(lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
-                            <i class="material-icons">done_outline</i>
+                          <a  href="<%= lesson_path(lesson.id)%>" rel="tooltip" class="btn btn-info btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">description</i>
                           </a>
-                          <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
-                            <i class="material-icons">edit</i>
-                          </button>
+                          <a   <%= link_to "done_outline" , admin_lesson_path(lesson.id) , data: { toggle: "tooltip", placement: "top", title: "Valider", confirm: "Es-tu sûr-e de vouloir valider ce cours ?"} , method: :put, class:"material-icons btn btn-success btn-sm" %>
+                          </a>
                            <a   <%= link_to "exit_to_app" , lesson_path(lesson.id) , data: { toggle: "tooltip", placement: "right", title: "Supprimer", confirm: "Es-tu sûr-e de vouloir supprimer ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
                           </a>
                         </td>
