@@ -16,4 +16,13 @@ class UsersController < ApplicationController
         render "new"
       end
     end
+<<<<<<< HEAD
+=======
+
+  def new
+    @user = User.new
+  end
+
+
+>>>>>>> 0e90a402d810442d0647ab34b82f57d12a3f7c2f
 end
