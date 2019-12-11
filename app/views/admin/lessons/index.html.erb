@@ -1,0 +1,99 @@
+ <div class="page-header header-filter" data-parallax="true" style="background-color: blue">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand text-center">
+            <h1>Cours de Couture Academy</h1>
+            <h3 class="title text-center">Allez on valide ! </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="section text-center">
+        <h2 class="title">Nos cours tous jolis tous beaux </h2>
+      </div>
+      <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+              <ul class="nav nav-pills nav-pills-icons" role="tablist">
+                <!--
+                                color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                            -->
+                <li class="nav-item">
+                  <a class="nav-link active show" href="#home-1" role="tab" data-toggle="tab" aria-selected="true">
+                    <i class="material-icons">home</i>
+                        Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#assignment_returned-1" role="tab" data-toggle="tab" aria-selected="false">
+                    <i class="material-icons">assignment_returned</i>
+                    Validation 
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#face-1" role="tab" data-toggle="tab" aria-selected="false">
+                    <i class="material-icons">face</i>
+                    Apprentis
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content tab-space">
+                <div class="tab-pane active show" id="home-1">
+                  On rentre à la maison ? C'est par <%= link_to "ici", admin_root_path %> !
+                </div>
+                <div class="tab-pane" id="assignment_returned-1">
+                  Administrator vous avez des nouveaux cours à valider !
+                  <br><br>Il serait temps de s'en occuper !   <%= link_to "Valider les cours", admin_lessons_path %>
+                </div>
+                <div class="tab-pane" id="face-1">
+                  Administrator, vous pouvez visualiser tous les nouveaux petits couturiers et ancien par la même occasion. 
+                  <br><br>N'hésite pas à venir à dire bonjour aux nouveaux ! <%= link_to "Nos Couturiers en herbe", admin_users_path %>
+                </div>
+              </div>
+              </div>
+              
+              <br><br>
+     
+      <div class="table-responsive">
+      
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center">#</th>
+                        <th>Email</th>
+                        <th>Titre</th>
+                        <th>Catégorie</th>
+                        <th class="text-right">Prix</th>
+                        <th class="text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <% @lessons.each do |lesson|%>
+                    <tbody>
+                      
+                        <td class="text-center"><%= lesson.id %></td>
+                        <td><%= lesson.teacher.email %></td>
+                        <td><%= lesson.title %></td>
+                        <td><%= lesson.category %></td>
+                        <td class="text-right"><%= lesson.price %> € </td>
+                        <td class="td-actions text-right">
+                          <a  href="<%= lesson_path(lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">done_outline</i>
+                          </a>
+                          <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                            <i class="material-icons">edit</i>
+                          </button>
+                           <a   <%= link_to "exit_to_app" , lesson_path(lesson.id) , data: { toggle: "tooltip", placement: "right", title: "Supprimer", confirm: "Es-tu sûr-e de vouloir supprimer ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
+                          </a>
+                        </td>
+                     
+                    </tbody>
+                     <% end %>
+                  </table>
+                 
+                </div>
+                
+                </div>
+  </div>

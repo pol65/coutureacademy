@@ -29,9 +29,12 @@
                       </div>
                     </div>
                       <span class="bmd-form-group">
+                      <%= form.text_area :summary, class: "form-control", placeholder: "Résumé du cours : Allez à l'essentiel et donnez envie aux futurs élèves de s'abonner - 250 caractères maximum" %>
+                      </span><br/>
+                      <span class="bmd-form-group">
+                      <h6>Contenu du cours</h6>
                       <%= form.trix_editor :content, autofocus: true%>
                       </span><br/>
-
                     <div class="row">
                       <div class="col-md-8">
                         <div class="form-group bmd-form-group">
@@ -46,8 +49,6 @@
                         </div>
                       </div>
                       </div><br/>
-
-
                       <div class="media-footer" align="center">
                         <%= form.submit class: "btn btn-success btn-round", value: "Poster le cours" %>
                       </div>
