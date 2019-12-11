@@ -18,7 +18,7 @@ has_many :comments
 
 validates :username, presence: true
 validates :username, uniqueness: true
-validates :description, length: {minimum: 100}
+#validates :description, length: {minimum: 100}
 
 
 
