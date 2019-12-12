@@ -1,4 +1,4 @@
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://thumbs.dreamstime.com/z/sewing-pattern-seamless-icons-31520889.jpg')">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url(/assets/background/back_show_categorie.jpg);">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
@@ -17,7 +17,7 @@
               <div class="col-md-6 col-lg-4">
                 <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
                   <div class="card card-rotate">
-                    <div class="front front-background" style="background-image: url(&quot;https://vertcerise.com/blog/wp-content/uploads/2019/02/hoop-art-chat.jpg&quot;); width: 289.984px;">
+                    <div class="front front-background" style="background-image: url(/assets/card/card_lesson.jpg); width: 289.984px;">
                       <div class="card-body">
                         <h4 class="card-title">
                           <a href="#pablo"><%= lesson.title%></a>
@@ -28,7 +28,11 @@
                         <div class="card-footer ">
                     <div class="author">
                       <a href="#pablo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="..." class="avatar img-raised"><br/>
+                        <%if lesson.teacher.avatar.attached?%>
+                          <%= image_tag lesson.teacher.avatar, alt: 'avatar', class:"avatar img-raised" %>
+                        <%else%>
+                          <img src="avatar/void/avatar.png" alt="Circle Image" class="avatar img-raised">
+                        <%end%>                                         <br/>
                         <span>Proposé par <%= lesson.teacher.username %></span>
                       </a>
                     </div>
