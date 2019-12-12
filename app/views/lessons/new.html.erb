@@ -35,6 +35,8 @@
                       <span class="bmd-form-group">
                       <h6>Contenu du cours</h6>
                       <%= form.trix_editor :content, autofocus: true%>
+                      <p> <%= @lesson.errors[:content].first %> </p>
+                          <p> <%= @lesson.errors[:content].second %> </p>
                       </span><br/>
                     <div class="row">
                       <div class="col-md-8">
