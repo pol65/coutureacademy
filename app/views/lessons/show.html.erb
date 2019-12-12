@@ -66,7 +66,7 @@
                 </a>
                 <% if @lesson.id == comment.lesson_id %>      
                 <div class="media-body">
-                  <h4 class="media-heading"><%= current_user.username %><small>&#xB7; 7 minutes ago</small></h4>
+                  <h4 class="media-heading"><%= comment.user.username %><small>&#xB7; 7 minutes ago</small></h4>
                   <h6 class="text-muted"></h6>
                   <p><%= comment.content %></p>
                   <br>
