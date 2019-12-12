@@ -11,5 +11,6 @@ class Lesson < ApplicationRecord
     validates :title, uniqueness: true 
     validates :title , length: { in: 6..50 }
     validates :content, length: {minimum: 50 }
+    validates :summary, length: {maximum: 250}
 
 end

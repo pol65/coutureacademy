@@ -65,9 +65,9 @@
       <div class="row">
       <% @lessons.each do |lesson|%>
               <div class="col-md-6 col-lg-4">
-                <div class="rotating-card-container manual-flip d-flex flex-fill" style="margin-bottom: 30px;">
-                  <div class="card card-rotate">
-                    <div class="front front-background" style="background-image: url(/assets/card/card_lesson.jpg);">
+                <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
+                  <div class="card card-rotate" >
+                    <div class="front front-background" style="background-image: url(/assets/card/card_lesson.jpg); height: 400px;">
                       <div class="card-body">
                         <h5 class="card-category card-category-social text-success">
                           <%= lesson.category %>
