@@ -62,7 +62,8 @@ class LessonsController < ApplicationController
       content: params[:lesson][:content],
       category: params[:lesson][:category],
       price: params[:lesson][:price],
-      summary: params[:lesson][:summary])
+      summary: params[:lesson][:summary],
+      checked: false  )
       redirect_to @lesson
     else
       render :edit
