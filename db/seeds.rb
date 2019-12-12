@@ -16,7 +16,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('lessons')
 ActiveRecord::Base.connection.reset_pk_sequence!('classrooms')
 
 n = 0
-categories = ["Broderie", "Couture", "Modélisme", "Bonnes Pratiques"]
+categories = ["Broderie", "Couture", "Modélisme", "Les Bases"]
 
 users = []
 20.times do
