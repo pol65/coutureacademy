@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 
     def destroy
-      @user = User.find(params[:id])
+      @user = current_user
       @user.destroy
       if @user.destroy 
         flash[:warning] = "Le compte a bien été supprimé !"
