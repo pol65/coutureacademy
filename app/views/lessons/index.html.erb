@@ -2,9 +2,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
-          <div class="brand text-center">
-            <h1 class="title">Couture Academy</h1>
-            <h3 class="title text-center">Apprenez à faire vos vêtements vous même grâce à des ateliers en ligne</h3>
+          <div class="brand">
+            <h1 class="title text-center">Apprenez à faire vos vêtements vous-même</h1><br/>
+            <h4>Couture Academy est une plateforme de partage des connaissances et des savoir-faire liés à la couture. Que vous soyez passionné·e par la couture, la broderie, le modélisme ou même le tricot, vous pourrez aussi bien approfondir vos connaissances que partager votre expérience avec d’autres amateur·ice·s de Do It Yourself.
+            </h4>
           </div>
         </div>
       </div>
@@ -13,7 +14,7 @@
   <div class="main main-raised">
     <div class="container">
         <div class="title">
-              <br/><h3 class="title">Les catégories</h3>
+          <br/><h3 class="title">Les catégories</h3>
             </div>
               <div class="row">
                <div class="col-md-3">
@@ -65,8 +66,8 @@
       <% @lessons.each do |lesson|%>
               <div class="col-md-6 col-lg-4">
                 <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
-                  <div class="card card-rotate">
-                    <div class="front front-background" style="background-image: url(/assets/card/card_lesson.jpg);">
+                  <div class="card card-rotate" >
+                    <div class="front front-background" style="background-image: url(/assets/card/card_lesson.jpg); height: 400px;">
                       <div class="card-body">
                         <h5 class="card-category card-category-social text-success">
                           <%= lesson.category %>
@@ -96,7 +97,11 @@
                           <%= lesson.summary %></p><br/>
                         <div class="author">
                           <h6>Proposé par <%= lesson.teacher.username %></h6>
+                          <% if lesson.price == 0 || lesson.price == nil %>
+                          <h6> Gratuit </h6>
+                          <%else%>
                           <h6>Prix <%= lesson.price %></h6>
+                          <%end%>
                         </div><br/>
                         <div class="stats text-center">
                           <a href="<%= lesson_path(lesson.id)%>" class="btn btn-rose btn-round">
@@ -113,7 +118,7 @@
                 </div>
               </div>
       <% end %>
-            </div>
+      </div>
     </div>
     </div>
   </div>

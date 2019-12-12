@@ -18,6 +18,9 @@
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                           <%= form.text_field :title, class: "form-control", placeholder: "Titre du cours" %>
+                          <p> <%= @lesson.errors[:title].first %> </p>
+                          <p> <%= @lesson.errors[:title].second %> </p>
+                          <p> <%= @lesson.errors[:title].third %> </p>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -33,12 +36,14 @@
                       <span class="bmd-form-group">
                       <h6>Contenu du cours</h6>
                       <%= form.trix_editor :content, autofocus: true%>
+                      <p> <%= @lesson.errors[:content].first %> </p>
+                      <p> <%= @lesson.errors[:content].second %> </p>
                       </span><br/>
                     <div class="row">
                       <div class="col-md-8">
                         <div class="form-group bmd-form-group">
                           <div class="input-group">
-                            <%= form.number_field :price, step: :any, class: "form-control", placeholder: "Prix (0 pour rendre le cours gratuit)" %>
+                            <%= form.number_field :price, step: :any, class: "form-control", placeholder: "Prix (0 pour rendre le cours gratuit)"  %>
                             <div class="input-group-prepend">
                               <span class="input-group-text">
                                 <i class="material-icons">euro</i>
