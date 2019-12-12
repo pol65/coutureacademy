@@ -13,9 +13,6 @@ class LessonsController < ApplicationController
     @comment = Comment.new
     @comments = Comment.all
     @lesson = Lesson.find(params[:id])
-    #@classrooms = Classroom.all
-    @user = User.find(params[:id])
-    #@classroom = Classroom.find(params[:id])
     @students = [Lesson.find(params[:id]).students]
   end
   

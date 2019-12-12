@@ -6,10 +6,9 @@ class User < ApplicationRecord
             
 has_one_attached :avatar
 
-has_many  :classrooms, dependent: :destroy
-has_many  :lessons, through: :classrooms
 
-has_many :followed_lessons, foreign_key: "student_id", class_name: "Lesson"
+has_many :followed_lessons, foreign_key: "student_id", class_name: "Classroom", dependent: :destroy
+has_many :lessons, through: :followed_lessons
 has_many :taught_lessons,  foreign_key: "teacher_id", class_name: "Lesson"
 
 has_many :comments
