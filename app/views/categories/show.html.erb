@@ -13,32 +13,28 @@
     <div class="container">
       <div class="container" id="courses">
       <div class="row">
-      <% @lessons.each do |lesson|%>
+        <% @lessons.each do |lesson|%>
               <div class="col-md-6 col-lg-4">
                 <div class="rotating-card-container manual-flip" style="margin-bottom: 30px;">
                   <div class="card card-rotate">
-                    <div class="front front-background" style="background-image: url(/assets/card/card_lesson.jpg); width: 289.984px;">
+                    <div class="front front-background" style="background-image: url(/assets/card/card_lesson.jpg); width: 289.984px; height: 400px;">
                       <div class="card-body">
                         <h4 class="card-title">
-                          <a href="#pablo"><%= lesson.title%></a>
+                          <%= lesson.title%>
                         </h4>
                         <p class="card-description">
                           <%= lesson.summary %>
+                        </p>
                         <div class="card-footer ">
-                    <div class="author">
-                      <a href="#pablo">
+                        <div class="author">
                         <%if lesson.teacher.avatar.attached?%>
                           <%= image_tag lesson.teacher.avatar, alt: 'avatar', class:"avatar img-raised" %>
                         <%else%>
                           <img src="avatar/void/avatar.png" alt="Circle Image" class="avatar img-raised">
-                        <%end%>                                         <br/>
+                        <%end%><br/>
                         <span>Proposé par <%= lesson.teacher.username %></span>
-                      </a>
                     </div>
-                    <div class="stats ml-auto">
-                      <i class="material-icons">schedule</i> Durée : 5h
                     </div>
-                  </div>
                         <div class="stats text-center">
                           <button type="button" name="button" class="btn btn-success btn-fill btn-round btn-rotate">
                             <i class="material-icons">refresh</i> En savoir plus
@@ -53,8 +49,11 @@
                           Lancez vous !
                         </h5>
                         <p class="card-description">
-                          Vous avez toujours voulu vous laisser dans la broderie, mais vous ne savez pas comment vous y prendre ? C'est parfait, ce cours est fait pour vous ! 
-                        </p>
+                          <%= lesson.summary %></p><br/>
+                        <div class="author">
+                          <h6>Proposé par <%= lesson.teacher.username %></h6>
+                          <h6>Prix <%= lesson.price %></h6>
+                        </div><br/>
                         <div class="stats text-center">
                           <a href="<%= lesson_path(lesson.id)%>" class="btn btn-rose btn-round">
                             <i class="material-icons">subject</i> Consulter
@@ -69,8 +68,8 @@
                   </div>
                 </div>
               </div>
-      <% end %>
-            </div>
+            <% end %>
+        </div>
     </div>
     </div>
   </div>
