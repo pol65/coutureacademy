@@ -51,7 +51,7 @@ class LessonsController < ApplicationController
   #def lesson_is_free?
     #if @lesson.price >= 1
 
-    #end
+    
   def edit
     @lesson = Lesson.find(params[:id])
   end
