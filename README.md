@@ -1,24 +1,26 @@
-# README
+COUTURE ACADEMY
+=
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repo is the result of a 2 weeks sprint by 5 students in web development :
 
-Things you may want to cover:
+ - Barbara Cano
+ - Paul Poitrenaud
+ - Sarah Benmesbah
+ - Thomas Delage
+ - Zélig Bouillot
 
-* Ruby version
+It was created during the 10th session of The_Hacking_Project. The live version of the website is accessible at [Couture Academy](https://coutureacademy.herokuapp.com/).
 
-* System dependencies
+About
+-
+Couture Academy is an online plateform made for DIY aficionados to share their knowledge about sewing, embrodery etc... 
 
-* Configuration
+It doesn't matter that you're a newbie or a famous fashion designer, Couture Academy is made for everyone.
+  
+With our plateform, you can set up an account in 5 minutes and discover the numerous workshops that we have to offer, or just create your own.
+ 
+How does it works ?
+-
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you want to test everything like any user, just create an account and browse around.
+If you want to access the admin dashboard, send us a message and we'll give your account admin rights.

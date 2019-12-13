@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
     end
     
     def create
-      # Amount in cents
+      @lesson = Lesson.find(params[:lesson_id])
       @amount = Lesson.find(params[:lesson_id]).price * 100
     
       customer = Stripe::Customer.create({
@@ -26,7 +26,7 @@ class ChargesController < ApplicationController
         
     if @classroom.save 
         flash[:success] = "Vous vous êtes bien inscrit!"
-        redirect_to root_path
+        redirect_to lesson_path(@lesson.id)
     else
         redirect_to new_lesson_path
     end

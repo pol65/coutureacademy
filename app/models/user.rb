@@ -15,11 +15,11 @@ has_many :comments
 validates :username, presence: true
 validates :username, uniqueness: true
 
-def is_teacher? 
-  if @current_user.taught_lessons.count > 0
-  else
+  def is_teacher? 
+    if @current_user.taught_lessons.count > 0
+    else
+    end
   end
-end
   
   after_create :welcome_send
 

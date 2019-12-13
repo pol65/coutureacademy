@@ -1,7 +1,6 @@
 class Admin::UsersController < ApplicationController
     before_action :authenticate_user!, :is_admin?
     
-    
     def index
         @users = User.all
     end
@@ -9,6 +8,7 @@ class Admin::UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
     end
+    
     def destroy
         @user = User.find(params[:id])
         @user.destroy
@@ -18,8 +18,5 @@ class Admin::UsersController < ApplicationController
         else
           render "new"
         end
-      end
-    
-    
-    
+    end   
 end

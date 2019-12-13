@@ -1,12 +1,9 @@
-
-
-
- <div class="page-header header-filter" data-parallax="true" style="background-color: purple">
+<div class="page-header header-filter" data-parallax="true" style="background-color: purple">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand text-center">
-            <h1>Bievenue sur le dashboard <%= current_user.email %></h1>
+            <h1>Bievenue sur le dashboard <%= current_user.username %></h1>
             <h3 class="title text-center">Le pilotage commence ici</h3>
           </div>
         </div>
@@ -19,11 +16,8 @@
         <h2 class="title">Maitrise le Couture Game</h2>
       </div>
       <div class="row justify-content-center">
-      <div class="col-lg-6 col-md-8" >
+        <div class="col-lg-6 col-md-8" >
               <ul class="nav nav-pills nav-pills-icons" role="tablist">
-                <!--
-                                color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
-                            -->
                 <li class="nav-item">
                   <a class="nav-link active show" href="#home-1" role="tab" data-toggle="tab" aria-selected="true">
                     <i class="material-icons">home</i>
@@ -45,7 +39,7 @@
               </ul>
               <div class="tab-content tab-space">
                 <div class="tab-pane active show" id="home-1">
-                  Bonjour à toi Administrator, il est temps de reprendre le contrôle du Couture Game. Le plus urgent est de validé des leçons pour avoir du contenu de qualité. 
+                  Bonjour à toi Administrator, il est temps de reprendre le contrôle du Couture Game. Le plus urgent est de valider des leçons pour avoir du contenu de qualité. 
                   <br><br>
                   N'oublie pas de jetter un oeil aux nouvaux arrivants par la même occasion.
                 </div>
@@ -54,11 +48,11 @@
                   <br><br>Il serait temps de s'en occuper !   <%= link_to "Valider les cours", admin_lessons_path %>
                 </div>
                 <div class="tab-pane" id="face-1">
-                  Administrator, vous pouvez visualiser tous les nouveaux petits couturiers et ancien par la même occasion. 
-                  <br><br>N'hésite pas à venir à dire bonjour aux nouvelles ! <%= link_to "Nos Couturiers en herbe", admin_users_path %>
+                  Administrator, vous pouvez visualiser tous les nouveaux petits couturiers et anciens par la même occasion. 
+                  <br><br>N'hésite pas à venir à dire bonjour aux nouveaux arrivants ! <%= link_to "Nos Couturiers en herbe", admin_users_path %>
                 </div>
               </div>
             </div>
-            </div>
+          </div>
     </div>
-  </div>
+</div>

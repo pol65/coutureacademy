@@ -1,7 +1,7 @@
 class Lesson < ApplicationRecord
 
     has_many   :classrooms, dependent: :destroy
-    has_many   :students, class_name: "User" , through: :classrooms
+    has_many   :students, class_name: "User", through: :classrooms
     
     belongs_to :teacher, class_name: "User"
 
@@ -13,7 +13,4 @@ class Lesson < ApplicationRecord
     validates :content, presence: {message: "Un contenu est nécessaire à la création d'un cours"}
     validates :content, length: {minimum: 50 ,message: "Le contenu doit contenir au minimum 50 caractères"}
     validates :category, presence: true
-    
-    
-
 end

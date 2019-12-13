@@ -11,5 +11,4 @@ module ApplicationHelper
           "info_outline"
       end
     end
-
 end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'lessons#index'
+  
   devise_for :users
   resources :users
   
@@ -14,21 +15,9 @@ Rails.application.routes.draw do
   end
   resources :categories, only: [:show]
   
-  get 'static_pages/contact'
-  get 'static_pages/about'
-  get 'static_pages/faq'
-  get 'static_pages/legal_notice'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-
   resources :lessons do 
-  	resources :comments
+    resources :comments
   end
-  
-  resources :lessons
-
-
-
 
   namespace :admin do 
     root 'base#index'
@@ -36,4 +25,8 @@ Rails.application.routes.draw do
     resources :lessons
   end
 
+  get 'static_pages/contact'
+  get 'static_pages/about'
+  get 'static_pages/faq'
+  get 'static_pages/legal_notice'
 end
