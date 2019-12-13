@@ -1,17 +1,3 @@
-<!--
- =========================================================
- Material Kit PRO - v2.2.0
- =========================================================
-
- Product Page: https://themes.getbootstrap.com/product/material-kit-pro/
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <body class="profile-page sidebar-collapse">
   <div class="page-header header-filter" data-parallax="true" style="background-image: url(/assets/background/back_show_user.jpg);"></div>
   <div class="main main-raised">
@@ -32,8 +18,8 @@
                 <h6>Inscrit.e depuis le <%= @user.created_at.strftime("%m-%Y")%> </h6> 
                 <% if current_user.admin? %>
                 <a href="<%= admin_root_path %>" class="btn btn-rose btn-round">
-                            <i class="material-icons">subject</i> Administrator
-                          </a>   
+                  <i class="material-icons">subject</i> Administrator
+                </a>   
                 <% else %>
                 <%end %>
               </div>
@@ -117,7 +103,6 @@
                     </thead>
                     <% @taught_lessons.each do |taught_lesson| %>
                     <tbody>
-                      
                         <td class="text-center"><%= taught_lesson.id %></td>
                         <td><%= taught_lesson.title %></td>
                         <td> <%= taught_lesson.category %> </td>
@@ -126,10 +111,8 @@
                           <a  href="<%= lesson_path(taught_lesson.id)%>" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
                             <i class="material-icons">done_outline</i>
                           </a>
-
                           <a  <%= link_to "edit", edit_lesson_path(taught_lesson.id), data: { toggle: "tooltip", placement: "right", title: "Éditer le cours"}, class:"material-icons btn btn-info btn-sm" %>
                           </a>
-
                           <a  <%= link_to "close", lesson_path(taught_lesson.id), data: { toggle: "tooltip", placement: "right", title: "Supprimer le cours", confirm: "Es-tu sûr.e de vouloir supprimer ce cours ?"} , method: :delete, class:"material-icons btn btn-warning btn-sm" %>
                           </a>
                         </td>

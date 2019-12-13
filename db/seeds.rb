@@ -30,15 +30,16 @@ users = []
 end
 
 lessons = []
-10.times do
+20.times do
     n = n+1
     lessons << Lesson.create(
-        title: "#{n}. Les bases en Couture",
-        content: "Voici le contenu du cours #{Faker::Lorem.paragraphs(number: 10)}",
-        price: Faker::Number.between(from: 25, to: 150),
+        title: "#{n}. Titre du cours.",
+        content: "Voici le contenu du cours #{Faker::Lorem.paragraphs(number: 20)}",
+        price: Faker::Number.between(from: 0, to: 150),
         category: categories.sample,
         teacher_id: users.sample.id,
-        summary: "Voici le résumé du cours #{Faker::Lorem.paragraph}"
+        summary: "Voici le résumé du cours #{Faker::Lorem.paragraph}",
+        checked: true
     )
 end
 

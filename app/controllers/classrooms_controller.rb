@@ -1,7 +1,7 @@
 class ClassroomsController < ApplicationController
     before_action :authenticate_user!, only: [:create]
+
 def index
-    
 end
 
 def create
@@ -27,6 +27,4 @@ def destroy
         render "new"
     end
 end
-
-
 end

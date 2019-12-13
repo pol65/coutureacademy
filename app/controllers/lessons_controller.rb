@@ -1,14 +1,11 @@
 class LessonsController < ApplicationController
-
   before_action :authenticate_user!, only: [:new, :show]
   before_action :is_accessible?, only: [:show]
-
 
   def index
     @lessons = Lesson.where(checked: true)
     @users = User.all
   end
-
 
   def show
     @comment = Comment.new
@@ -36,7 +33,6 @@ class LessonsController < ApplicationController
       render "new"
     end
   end
-
 
   def destroy
     @lesson = Lesson.find(params[:id])
