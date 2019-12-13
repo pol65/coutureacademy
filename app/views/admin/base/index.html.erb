@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand text-center">
-            <h1>Bievenue sur le dashboard <%= current_user.email %></h1>
+            <h1>Bievenue sur le dashboard <%= current_user.username %></h1>
             <h3 class="title text-center">Le pilotage commence ici</h3>
           </div>
         </div>
@@ -45,7 +45,7 @@
               </ul>
               <div class="tab-content tab-space">
                 <div class="tab-pane active show" id="home-1">
-                  Bonjour à toi Administrator, il est temps de reprendre le contrôle du Couture Game. Le plus urgent est de validé des leçons pour avoir du contenu de qualité. 
+                  Bonjour à toi Administrator, il est temps de reprendre le contrôle du Couture Game. Le plus urgent est de valider des leçons pour avoir du contenu de qualité. 
                   <br><br>
                   N'oublie pas de jetter un oeil aux nouvaux arrivants par la même occasion.
                 </div>
@@ -54,8 +54,8 @@
                   <br><br>Il serait temps de s'en occuper !   <%= link_to "Valider les cours", admin_lessons_path %>
                 </div>
                 <div class="tab-pane" id="face-1">
-                  Administrator, vous pouvez visualiser tous les nouveaux petits couturiers et ancien par la même occasion. 
-                  <br><br>N'hésite pas à venir à dire bonjour aux nouvelles ! <%= link_to "Nos Couturiers en herbe", admin_users_path %>
+                  Administrator, vous pouvez visualiser tous les nouveaux petits couturiers et anciens par la même occasion. 
+                  <br><br>N'hésite pas à venir à dire bonjour aux nouveaux arrivants ! <%= link_to "Nos Couturiers en herbe", admin_users_path %>
                 </div>
               </div>
             </div>

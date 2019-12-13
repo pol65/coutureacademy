@@ -8,7 +8,8 @@ class LessonsController < ApplicationController
     @lessons = Lesson.where(checked: true)
     @users = User.all
   end
- 
+
+
   def show
     @comment = Comment.new
     @comments = Comment.all
@@ -29,7 +30,7 @@ class LessonsController < ApplicationController
       summary: params[:lesson][:summary],
       teacher: current_user)
     if @lesson.save 
-      flash[:success] = "Votre cours est en ligne !"
+      flash[:info] = "Votre cours est en cours de validation !"
       redirect_to root_path
     else
       render "new"

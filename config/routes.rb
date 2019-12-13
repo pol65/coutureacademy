@@ -22,10 +22,10 @@ Rails.application.routes.draw do
 
 
   resources :lessons do 
-  	resources :comments
+    resources :comments
   end
   
-  resources :lessons
+
 
 
 
