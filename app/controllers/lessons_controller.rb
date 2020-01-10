@@ -25,7 +25,8 @@ class LessonsController < ApplicationController
       category: params[:lesson][:category],
       price: params[:lesson][:price],
       summary: params[:lesson][:summary],
-      teacher: current_user)
+      teacher: current_user,
+      checked: false)
     if @lesson.save 
       flash[:info] = "Votre cours est en cours de validation !"
       redirect_to root_path
@@ -56,7 +57,8 @@ class LessonsController < ApplicationController
       content: params[:lesson][:content],
       category: params[:lesson][:category],
       price: params[:lesson][:price],
-      summary: params[:lesson][:summary])
+      summary: params[:lesson][:summary],
+      checked: false)
       redirect_to @lesson
     else
       render :edit
