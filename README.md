@@ -4,7 +4,7 @@ COUTURE ACADEMY
 This repo is the result of a 2 weeks sprint by 5 students in web development :
 
  - Barbara Cano
- - Paul Poitrenaud
+ - P
  - Sarah Benmesbah
  - Thomas Delage
  - Zélig Bouillot
